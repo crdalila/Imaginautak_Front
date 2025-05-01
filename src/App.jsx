@@ -1,7 +1,7 @@
 import './App.css'
 import { useEffect, useState } from 'react';
 
-import CategoryList from '../src/components/category/categoryList';
+import CategoryList from '../src/components/category/getAll/categoryList';
 import Navbar from '../src/components/navbar/Navbar';
 
 
