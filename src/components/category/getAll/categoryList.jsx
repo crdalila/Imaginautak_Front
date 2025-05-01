@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import CategoryCard from "./categoryCard";
-import { getAllCategories } from "../../utils/category";
+import { getAllCategories } from "../../../utils/category";
 import './categoryList.css';
-import App from "../../App";
+import App from "../../../App";
 
 
 function CategoryList({onRouteChange}){
