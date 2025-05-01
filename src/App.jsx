@@ -1,12 +1,28 @@
 import './App.css'
-import CategoryList from '../src/components/category/categoryList'
+import { useEffect, useState } from 'react';
+
+import CategoryList from '../src/components/category/categoryList';
+import Navbar from '../src/components/navbar/Navbar';
+
+
 
 function App() {
+  const [route, setRoute] = useState("home");
+
+  // Cambiar de rutas
+  const handleRouteChange = (newRoute) => {
+    setRoute(newRoute);
+  }
+  const routes = {
+    home : <h1>IMAGINAUTAK</h1>, //TODO home
+    categorias: <CategoryList  onRouteChange={handleRouteChange}/>,
+  }
   return (
-    <div className="App">
-      <CategoryList />
-    </div>
-  );
+    <>
+      <Navbar route={route} onRouteChange={handleRouteChange}/>
+      {routes[route]}
+    </>
+  )
 }
 
 export default App;
