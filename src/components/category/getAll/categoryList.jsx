@@ -10,10 +10,10 @@ function CategoryList({onRouteChange}){
     const [categories, setCategories] = useState([]); //empieza con una lista vacía
     const [error, setError] = useState(null);
     useEffect(()=>{
-        handleLoadStands();
+        handleLoadCategories();
     },[])
     // función que carga las categorías
-    const handleLoadStands = async () => {
+    const handleLoadCategories = async () => {
         const data  = await getAllCategories();
         if (data.error) {
             setError(data.error);
