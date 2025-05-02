@@ -1,44 +1,31 @@
-.category {
+.artist {
     border: #CE7240 solid 3px;
     border-radius: 5px;
     margin: 10px
 }
 
-.category__main {
-    display: flex;
-    flex-direction: row;
-}
-
-.category__text {
-    padding-left: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 70%;;
-}
-
-.category__text-title {
-    font-size: 24px;
-}
-
-.category__text-description {
-    font-size: 16px;
-    font-style: italic;
-}
-
-.category__img {
+.artist__img {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 30%;
 }
 
-.category img {
+.artist img {
     display: flex;
     max-height: 50px;
 }
 
-.category a {
+.artist__title {
+    font-size: 24px;
+}
+
+.artist__bio {
+    font-size: 16px;
+    font-style: italic;
+}
+
+.artist a {
     display: flex;
     justify-content: flex-end;
     padding: 0 10px 10px 0px;
