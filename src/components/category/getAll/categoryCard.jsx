@@ -91,7 +91,7 @@ const categoryExtraInfo = {
 
 
 // COMPONENTE DE CATEGORIA
-function CategoryCard({ category }) {
+function CategoryCard({ category, preview = false }) {
     //para que no tenga en cuenta las _, que en la bbdd no están y da error
     const normalizedKey = category.category_name.toLowerCase().replace(/ /g, "_");
 
@@ -103,17 +103,17 @@ function CategoryCard({ category }) {
     };
 
     return (
-        <article className="category">
-            <section className="category__main">
-                <section className="category__text">
-                    <h2 className="category__text-title">{info.name}</h2>
-                    {info.description && <p className="category__text-description">{info.description}</p>}
+        <article className={`category ${preview ? "category__preview" : ""}`}>
+            <section className={`category ${preview ? "category__preview__main" : "category__main"}`}>
+                <section className={`category ${preview ? "category__preview__text" : "category__text"}`}>
+                    <h2 className={`category ${preview ? "category__preview__text-title" : "category__text-title"}`}>{info.name}</h2>
+                    {info.description && <p className={`category ${preview ? "category__preview__text-description" : "category__text-description"}`}>{info.description}</p>}
                 </section>
-                <section className="category__img">
+                <section className={`category ${preview ? "category__preview__img" : "category__img"}`}>
                     <img src={info.image} alt={info.name} />
                 </section>
             </section>
-            <a href="#">Ver todos los proyectos</a>
+            <a href="#">Ver todos los proyectos de {info.name}</a>
         </article>
     );
 }

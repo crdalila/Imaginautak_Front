@@ -5,7 +5,7 @@ import './categoryList.css';
 import App from "../../../App";
 
 
-function CategoryList({onRouteChange}){
+function CategoryList({onRouteChange, preview = false }){
     // getter y setter: el primero es el estado actual, el segundo la función para actualizarlo
     const [categories, setCategories] = useState([]); //empieza con una lista vacía
     const [error, setError] = useState(null);
@@ -28,11 +28,16 @@ function CategoryList({onRouteChange}){
             <p>Explora las diferentes categorías de arte que ofrecemos</p>
             {error && <p className="error"> {error}</p>}
             <section className="category__getAll-cards">
-                {categories.length == 0 && <p>No hay categorías disponibles</p>}
-                {categories.map (category => {
-                    return <CategoryCard category={category} key={category.category_id} /> 
-                })
-                }
+                {categories.length === 0 && <p>No hay categorías disponibles</p>}
+                <div className={preview ? "category__carousel" : "category__grid"}>
+                    {categories
+                        .slice(0, preview ? 10 : categories.length)
+                        .map(category => (
+                            <div className={preview ? "category__carousel-item" : ""} key={category.category_id}>
+                                <CategoryCard category={category} preview={preview} />
+                            </div>
+                    ))}
+                </div>
             </section>
         </section>
     )

@@ -15,11 +15,11 @@ function ArtistCard({ artist }) {
 
     return (
         <article className="artist">
-            <h2 className="artist__title">{info.artistic_name}</h2>
-            {info.bio && <p className="artist__bio">{info.bio}</p>}
             <section className="artist__img">
                 <img src={info.img} alt={info.artistic_name} />
             </section>
+            <h2 className="artist__title">{info.artistic_name}</h2>
+            {info.bio && <p className="artist__bio">{info.bio}</p>}
             <a href="#">Ir al perfil de {info.artistic_name}</a>
         </article>
     );
