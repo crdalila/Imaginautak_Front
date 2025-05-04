@@ -31,3 +31,22 @@
     padding: 0 10px 10px 0px;
     font-size: 12px;
 }
+
+
+/* artist__PREVIEW para el CSS del home */
+
+.artist__preview {
+    border: var(--accent-color) solid 1px;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.artist__preview__img {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}

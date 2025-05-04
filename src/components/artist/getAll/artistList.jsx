@@ -5,7 +5,7 @@ import './artistList.css';
 import App from "../../../App";
 
 
-function ArtistList({onRouteChange}){
+function ArtistList({onRouteChange, preview = false}){
     // getter y setter: el primero es el estado actual, el segundo la función para actualizarlo
     const [artists, setArtists] = useState([]); //empieza con una lista vacía
     const [error, setError] = useState(null);
@@ -29,10 +29,15 @@ function ArtistList({onRouteChange}){
             {error && <p className="error"> {error}</p>}
             <section className="artist__getAll-cards">
                 {artists.length == 0 && <p>No hay artistas disponibles</p>}
-                {artists.map (artist => {
-                    return <ArtistCard artist={artist} key={artist.artist_id} /> 
-                })
-                }
+                <div className={preview ? "artist__carousel" : ""}>
+                    {artists
+                        .slice(0, preview ? 5 : artists.length)
+                        .map (artist => (
+                            <div className={preview ? "artist__carousel-item" : ""} key={artist.artist_id}>
+                                    <ArtistCard artist={artist} preview={preview} />
+                            </div> 
+                    ))}
+                </div>
             </section>
         </section>
     )

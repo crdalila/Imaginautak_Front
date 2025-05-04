@@ -9,7 +9,7 @@ import NavbarDown from "../navbar/navbarDown";
 
 function HomePage({onRouteChange}){
     const categories = <CategoryList onRouteChange={onRouteChange} preview ={true} />;
-    const artists = ArtistList({onRouteChange});
+    const artists = <ArtistList onRouteChange={onRouteChange} preview={true} />;
     const projects = ProjectList({onRouteChange});
     const navbar_filters = NavbarFilters({onRouteChange});
     const navbar_down = NavbarDown({onRouteChange});
@@ -30,11 +30,11 @@ function HomePage({onRouteChange}){
                 <section className="home__content-categories">
                     {categories}
                 </section>
-                <section className="home__content-projects">
-                    {projects}
-                </section>
                 <section className="home__content-artist">
                     {artists}
+                </section>
+                <section className="home__content-projects">
+                    {projects}
                 </section>
             </section>
 
