@@ -1,3 +1,172 @@
+/* ==========================================================================
+    RESET
+   ========================================================================== */
+
+   * {
+    box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    font-family: "Liter", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    object-fit: cover;
+    display: inline-block;
+}
+
+
+/* ==========================================================================
+    VARIABLES: root
+   ========================================================================== */
+
+:root {
+    --main-font: "Oswald", sans-serif;
+    --second-font: "Courier New", monospace;
+    --main-font-weight: 400;
+    --main-font-size: 16px;
+    --main-color: white;
+    /*background color*/
+    --secondary-color: antiquewhite;
+    /*secondary color*/
+    --accent-color: #CE7240;
+    /*accent-color*/
+    --text-color: black;
+}
+
+
 /* CATEGORY para el CSS del getAll */
 
 .category {
@@ -18,11 +187,12 @@
 }
 
 .category__text-title {
-    font-size: 24px;
+    font-family: var(--second-font);
+    font-size: 1.5em;
 }
 
 .category__text-description {
-    font-size: 16px;
+    font-family: var(--main-font);
     font-style: italic;
 }
 
@@ -38,7 +208,7 @@
     max-height: 50px;
 }
 
-.category a {
+.category__vermas {
     display: flex;
     justify-content: flex-end;
     padding: 0 10px 10px 0px;
@@ -50,11 +220,21 @@
 /* CATEGORY__PREVIEW para el CSS del home */
 
 .category__preview {
-    border: #CE7240 solid 1px;
+    border: var(--accent-color) solid 1px;
     border-radius: 5px;
     margin: 10px;
     padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.category__preview__img {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.category__preview__text-description, .category__preview__vermas {
+    display: none;
 }

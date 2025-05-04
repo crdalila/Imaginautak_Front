@@ -4,9 +4,6 @@ function NavbarFilters ({route, onRouteChange}){
     return (
         <nav>
             <ul className="nav">
-                <li className={"nav__button " + (route === "home" ? "active" : "") } >
-                    <button onClick={() => onRouteChange("home")}>Home</button>
-                </li>
                 <li className={"nav__button " + (route === "categorias" ? "active" : "") }>
                     <button onClick={() => onRouteChange("categorias")}>Categorías</button>
                 </li>

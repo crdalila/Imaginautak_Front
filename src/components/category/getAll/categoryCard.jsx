@@ -14,19 +14,19 @@ const categoryExtraInfo = {
     dance: {
         category_name: "Danza",
         category_description: "dafdafeñ dklñsjf e eieieieiieeieeiieieieieieeiie",
-        category_image: "/images/category_imgs/compass.svg" }, //TODO
+        category_image: "/images/category_imgs/shoe-prints-solid.svg" },
     performance: {
         category_name: "Performance",
         category_description: "Artes performáticas",
         category_image: "/images/category_imgs/mask-solid.svg" },
     comedy_show: {
-        category_name: "Show de comedia",
+        category_name: "Comedia",
         category_description: "Monólogos, comedias, improvisaciones, etc, cualquier disciplina que haga conectar con el público a través del humor",
-        category_image: "/images/category_imgs/music-solid.svg" }, //TODO
+        category_image: "/images/category_imgs/face-grin-tears-solid.svg" },
     illustration: {
         category_name: "Ilustración",
         category_description: "Dibujos, ilustraciones, digitales o no, etc.",
-        category_image: "/images/category_imgs/print-solid.svg" }, //TODO
+        category_image: "/images/category_imgs/print-solid.svg" },
     photography: {
         category_name: "Fotografía",
         category_description: "La perspectiva del mundo que nos rodea a través de la fotografía estática",
@@ -113,7 +113,7 @@ function CategoryCard({ category, preview = false }) {
                     <img src={info.image} alt={info.name} />
                 </section>
             </section>
-            <a href="#">Ver todos los proyectos de {info.name}</a>
+            <a className={`category ${preview ? "category__preview__vermas" : "category__vermas"}`} href="#">Ver todos los proyectos de {info.name}</a>
         </article>
     );
 }

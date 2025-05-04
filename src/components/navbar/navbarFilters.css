@@ -1,0 +1,20 @@
+/* NAVBAR-FILTERS */
+.nav {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+button {
+    padding-inline: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-radius: 0.5em;
+    border: var(--accent-color) solid 0.1em;
+    font-family: var(--second-font);
+}
+
+button:hover, button:active {
+    background-color: var(--accent-color);
+    color: var(--main-color);
+}

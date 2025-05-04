@@ -1,4 +1,67 @@
+/* ==========================================================================
+    HOME
+   ========================================================================== */
+
+   /* HEADER */
+.home__header {
+    background-color: var(--accent-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: white;
+}
+
+.home__header h1 {
+    font-family: var(--second-font);
+    font-size: 2em;
+}
+
+.home__header p {
+    font-family: var(--main-font);
+    text-align: center;
+}
+
+
+/* NAVBAR FILTERS */
+
+.home__navbar-filters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2em;
+    padding-bottom: 1em;
+}
+
+/* CONTENT */
 .home__content-categories {
+    margin: 10px;
+    padding-inline: 10px;
     border: 1px solid grey;
     border-radius: 5px;
+}
+
+.home__content-projects {
+    margin: 10px;
+    padding-inline: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.home__content-artist {
+    margin: 10px;
+    padding-inline: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+/* NAVBAR DOWN */
+.home__navbar-down {
+    background-color: white;
+    border-top: grey solid 1px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
 }

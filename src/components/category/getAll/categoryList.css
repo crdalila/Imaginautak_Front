@@ -12,6 +12,6 @@
 
 .category__carousel-item {
     scroll-snap-align: start;
-    min-width: 200px; /* Ajusta según el tamaño deseado */
+    min-width: 200px;
     min-height: 150px;
 }

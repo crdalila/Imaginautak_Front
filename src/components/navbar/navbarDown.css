@@ -1,0 +1,6 @@
+.nav__down {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1em;
+}
