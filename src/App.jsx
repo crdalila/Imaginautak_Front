@@ -5,6 +5,7 @@ import CategoryList from '../src/components/category/getAll/categoryList';
 import ArtistList from '../src/components/artist/getAll/artistList';
 import ProjectList from '../src/components/project/getAll/projectList';
 import HomePage from '../src/components/home/Home';
+import Login from './components/auth/Login';
 
 
 
@@ -17,6 +18,7 @@ function App() {
   }
   const routes = {
     home: <HomePage onRouteChange={handleRouteChange}/>,
+    login: <Login onRouteChange={handleRouteChange}/>,
     categorias: <CategoryList  onRouteChange={handleRouteChange}/>,
     artistas: <ArtistList  onRouteChange={handleRouteChange}/>,
     proyectos: <ProjectList  onRouteChange={handleRouteChange}/>

@@ -1,5 +1,5 @@
-import './Navbar.css';
-function Navbar ({route, onRouteChange}){
+import './navbarFilters.css';
+function NavbarFilters ({route, onRouteChange}){
 
     return (
         <nav>
@@ -21,4 +21,4 @@ function Navbar ({route, onRouteChange}){
     )
 }
 
-export default Navbar;
+export default NavbarFilters;

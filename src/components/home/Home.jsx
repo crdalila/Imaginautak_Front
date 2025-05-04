@@ -4,13 +4,15 @@ import './Home.css';
 import CategoryList from "../category/getAll/categoryList";
 import ArtistList from "../artist/getAll/artistList";
 import ProjectList from "../project/getAll/projectList";
-import Navbar from "../navbar/Navbar";
+import NavbarFilters from "../navbar/navbarFilters";
+import NavbarDown from "../navbar/navbarDown";
 
 function HomePage({onRouteChange}){
     const categories = <CategoryList onRouteChange={onRouteChange} preview ={true} />;
     const artists = ArtistList({onRouteChange});
     const projects = ProjectList({onRouteChange});
-    const navbar = Navbar({onRouteChange});
+    const navbar_filters = NavbarFilters({onRouteChange});
+    const navbar_down = NavbarDown({onRouteChange});
 
     // renderizado:
     return (
@@ -19,9 +21,11 @@ function HomePage({onRouteChange}){
                 <h1>IMAGINAUTAK</h1>
                 <p>Descubre artistas emergentes y comparte tus propios proyectos</p>
             </section>
-            <section className="home__navbar">
-                {navbar}
+
+            <section className="home__navbar-filters">
+                {navbar_filters}
             </section>
+
             <section className="home__content">
                 <section className="home__content-categories">
                     {categories}
@@ -32,6 +36,10 @@ function HomePage({onRouteChange}){
                 <section className="home__content-artist">
                     {artists}
                 </section>
+            </section>
+
+            <section className="home__navbar-down">
+                {navbar_down}
             </section>
         </section>
     )

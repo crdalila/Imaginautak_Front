@@ -29,9 +29,9 @@ function CategoryList({onRouteChange, preview = false }){
             {error && <p className="error"> {error}</p>}
             <section className="category__getAll-cards">
                 {categories.length === 0 && <p>No hay categorías disponibles</p>}
-                <div className={preview ? "category__carousel" : "category__grid"}>
+                <div className={preview ? "category__carousel" : ""}>
                     {categories
-                        .slice(0, preview ? 10 : categories.length)
+                        .slice(0, preview ? 5 : categories.length)
                         .map(category => (
                             <div className={preview ? "category__carousel-item" : ""} key={category.category_id}>
                                 <CategoryCard category={category} preview={preview} />
