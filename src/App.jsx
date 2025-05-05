@@ -5,7 +5,9 @@ import CategoryList from '../src/components/category/getAll/categoryList';
 import ArtistList from '../src/components/artist/getAll/artistList';
 import ProjectList from '../src/components/project/getAll/projectList';
 import HomePage from '../src/components/home/Home';
-import Login from './components/auth/Login';
+import Auth from './components/auth/Auth';
+import RouteContext from './context/RouteContext';
+import { AuthProvider } from './context/AuthContext';
 
 
 
@@ -18,16 +20,22 @@ function App() {
   }
   const routes = {
     home: <HomePage onRouteChange={handleRouteChange}/>,
-    login: <Login onRouteChange={handleRouteChange}/>,
+    login: <Auth />,
     categorias: <CategoryList  onRouteChange={handleRouteChange}/>,
     artistas: <ArtistList  onRouteChange={handleRouteChange}/>,
     proyectos: <ProjectList  onRouteChange={handleRouteChange}/>
   }
+
   return (
     <>
-      {routes[route]}
+      <RouteContext value={{ route: route, onRouteChange: handleRouteChange }} >
+        <AuthProvider>
+          {routes[route]}
+        </AuthProvider>
+      </RouteContext>
     </>
   )
+
 }
 
 export default App;

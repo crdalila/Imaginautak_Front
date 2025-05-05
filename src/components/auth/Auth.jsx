@@ -1,13 +1,18 @@
-import { useState } from "react";
-import {login} from "../../utils/auth";
+import { useState, useContext } from "react";
 
-function Login ({onLogin}) {
+import { AuthContext } from "../../context/AuthContext";
+
+// LOGIN Y REGISTRO
+function Auth ({}) {
     const [isRegister, setIsRegister] = useState(false);
     const [error, setError] = useState(null);
     const [userData, setUserData] = useState({
         email: "",
-        password:""
+        password: ""
     })
+
+    const {onLogin} = useContext(AuthContext);
+    
     const handleUserPassword = (e) =>{
         const newPassword = e.target.value;
         console.log("user password", newPassword)
@@ -43,4 +48,4 @@ function Login ({onLogin}) {
     )
 }
 
-export default Login;
+export default Auth;

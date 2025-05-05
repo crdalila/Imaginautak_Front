@@ -1,16 +1,17 @@
-//import { getToken } from "../localStorage";
+import { getToken } from "../utils/localStorage";
+
 const BASE_URL = "http://localhost:3000";
 
 async function fetchData(route, method="GET", data=null) { //método y data por defecto, aunque no vaya a ser siempre ese
     const url = BASE_URL + route;
-    //const token =  getToken(); //para iniciar sesión
+    const token =  getToken(); //para iniciar sesión
     const options = { //tipo postman
         method : method,
         headers: {} //TODO mirarlo más a fondo jeje
     };
-    /* if (token) {
+    if (token) {
         options.headers["Authorization"] = `Bearer ${token}`;
-    } */
+    }
     if (data) {
         options.headers["Content-Type"] = "application/json"; //para indicar que es json
         options.body = JSON.stringify(data);
