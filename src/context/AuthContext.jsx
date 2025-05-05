@@ -7,13 +7,13 @@ import RouteContext from "./RouteContext";
 
 const AuthContext = createContext({
     userData: {},
-    onLogin : async () => {}, //para que lo lea como async
+    onLogin: async () => {}, //para que lo lea como async
     onLogout: () => {}
 });
 
 const AuthProvider = ({children}) => {
     const [userData, setUserData] = useState(null);
-    const {onRouterChange} = useContext(RouteContext);
+    const {onRouteChange} = useContext(RouteContext);
     
     const handleLogin = async (email, password) => {
         const result = await login(email, password);
@@ -23,7 +23,7 @@ const AuthProvider = ({children}) => {
         } else {
             setUserData(result.user);
             saveToken(result.token);
-            onRouterChange("home");
+            onRouteChange("home");
             return result;
         }
     }
@@ -35,9 +35,9 @@ const AuthProvider = ({children}) => {
     }
 
     return (
-        <AuthContext.Provider value={{userData:userData, onLogin:handleLogin, onLogout:handleLogout}}>
+        <AuthContext value={{userData:userData, onLogin:handleLogin, onLogout:handleLogout}}>
             {children}
-        </AuthContext.Provider>
+        </AuthContext>
     )
 }
 
