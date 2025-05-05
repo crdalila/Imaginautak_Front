@@ -70,7 +70,7 @@ const categoryNameChange = {
 
 
 // COMPONENTE DE PROYECTO
-function ProjectCard({ project }) {
+function ProjectCard({ project, preview = false }) {
 
     //especifica los datos que necesitamos de project
     const info = {
@@ -100,7 +100,7 @@ function ProjectCard({ project }) {
 
             {info.description && <p className="project__description">{info.description}</p>}
 
-            <section className="project__links">
+            <section className={`${preview ? "project__preview__links" : "project__links"}`}>
                 <section className="project__links-categories">
                 {info.categories.map(category => {
                     const normalizedKey = category.category_name.toLowerCase().replace(/ /g, "_");

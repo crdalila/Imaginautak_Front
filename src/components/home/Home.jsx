@@ -10,7 +10,7 @@ import NavbarDown from "../navbar/navbarDown";
 function HomePage({onRouteChange}){
     const categories = <CategoryList onRouteChange={onRouteChange} preview ={true} />;
     const artists = <ArtistList onRouteChange={onRouteChange} preview={true} />;
-    const projects = ProjectList({onRouteChange});
+    const projects = <ProjectList onRouteChange={onRouteChange} preview={true} />;
     const navbar_filters = NavbarFilters({onRouteChange});
     const navbar_down = NavbarDown({onRouteChange});
 

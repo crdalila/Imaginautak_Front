@@ -103,17 +103,17 @@ function CategoryCard({ category, preview = false }) {
     };
 
     return (
-        <article className={`category ${preview ? "category__preview" : ""}`}>
-            <section className={`category ${preview ? "category__preview__main" : "category__main"}`}>
-                <section className={`category ${preview ? "category__preview__text" : "category__text"}`}>
-                    <h2 className={`category ${preview ? "category__preview__text-title" : "category__text-title"}`}>{info.name}</h2>
-                    {info.description && <p className={`category ${preview ? "category__preview__text-description" : "category__text-description"}`}>{info.description}</p>}
+        <article className={`${preview ? "category__preview" : ""}`}>
+            <section className={`${preview ? "category__preview__main" : "category__main"}`}>
+                <section className={`${preview ? "category__preview__text" : "category__text"}`}>
+                    <h2 className={`${preview ? "category__preview__text-title" : "category__text-title"}`}>{info.name}</h2>
+                    {info.description && <p className={`${preview ? "category__preview__text-description" : "category__text-description"}`}>{info.description}</p>}
                 </section>
-                <section className={`category ${preview ? "category__preview__img" : "category__img"}`}>
+                <section className={`${preview ? "category__preview__img" : "category__img"}`}>
                     <img src={info.image} alt={info.name} />
                 </section>
             </section>
-            <a className={`category ${preview ? "category__preview__vermas" : "category__vermas"}`} href="#">Ver todos los proyectos de {info.name}</a>
+            <a className={`${preview ? "category__preview__vermas" : "category__vermas"}`} href={`/categorias/${category.category_name}`}>Ver todos los proyectos de {info.name}</a>
         </article>
     );
 }

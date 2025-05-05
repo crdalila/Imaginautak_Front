@@ -7,12 +7,14 @@ import './categoryList.css';
 import App from "../../../App";
 
 
+// GET ALL CATEGORIES
 function CategoryList({preview = false }){
     // getter y setter: el primero es el estado actual, el segundo la función para actualizarlo
     const [categories, setCategories] = useState([]); //empieza con una lista vacía
     const {onRouteChange} = useContext(RouteContext);
     const firstCategoryRef = useRef(null);
     const [error, setError] = useState(null);
+    
     useEffect(()=>{
         handleLoadCategories();
     },[])

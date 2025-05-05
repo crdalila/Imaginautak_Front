@@ -1,10 +1,10 @@
 import './App.css'
 import { useEffect, useState } from 'react';
 
-import CategoryList from '../src/components/category/getAll/categoryList';
-import ArtistList from '../src/components/artist/getAll/artistList';
-import ProjectList from '../src/components/project/getAll/projectList';
-import HomePage from '../src/components/home/Home';
+import CategoryList from './components/category/getAll/categoryList';
+import ArtistList from './components/artist/getAll/artistList';
+import ProjectList from './components/project/getAll/projectList';
+import HomePage from './components/home/Home';
 import Auth from './components/auth/Auth';
 import RouteContext from './context/RouteContext';
 import { AuthProvider } from './context/AuthContext';
