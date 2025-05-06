@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import ArtistCard from "./artistCard";
-import { getAllArtist } from "../../../utils/artist";
+
+import ArtistCard from "../../components/artist/artistCard";
+import { getAllArtist } from "../../utils/artist";
 import './artistList.css';
-import App from "../../../App";
+import App from "../../App";
 
 
 function ArtistList({onRouteChange, preview = false}){

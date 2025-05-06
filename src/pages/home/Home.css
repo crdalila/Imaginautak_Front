@@ -2,6 +2,10 @@
     HOME
    ========================================================================== */
 
+.home {
+    margin-bottom: 5.5em;
+}
+
    /* HEADER */
 .home__header {
     background-color: var(--accent-color);
@@ -54,14 +58,4 @@
     padding-inline: 10px;
     border: 1px solid grey;
     border-radius: 5px;
-}
-
-/* NAVBAR DOWN */
-.home__navbar-down {
-    background-color: white;
-    border-top: grey solid 1px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 10px;
 }

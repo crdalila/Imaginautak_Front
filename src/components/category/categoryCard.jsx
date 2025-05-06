@@ -1,19 +1,17 @@
-import { getCategoryByName } from '../../../utils/category';
-import ProjectCard from '../../project/getAll/projectCard';
 import './categoryCard.css';
 
 // AGREGAMOS DATOS DE CATEOGRÍA ADICIONALES.
 // lo hacemos aquí y no en la bbdd porque no nos interesa que la bbdd guarde esto
 const categoryExtraInfo = {
-    music: {
+    musica: {
         category_name: "Música",
         category_description: "Bandas, grupos, cantantes en solitario, personas que componen, que tocan instrumentos, etc.",
         category_image: "/images/category_imgs/music-solid.svg" },
-    theatre: {
+    teatro: {
         category_name: "Teatro",
         category_description: "feñsafjñelajfeañfea.afa jsiñf asjifñoa fjo jaj añjf a",
         category_image: "/images/category_imgs/masks-theater-solid.svg" },
-    dance: {
+    danza: {
         category_name: "Danza",
         category_description: "dafdafeñ dklñsjf e eieieieiieeieeiieieieieieeiie",
         category_image: "/images/category_imgs/shoe-prints-solid.svg" },
@@ -21,133 +19,103 @@ const categoryExtraInfo = {
         category_name: "Performance",
         category_description: "Artes performáticas",
         category_image: "/images/category_imgs/mask-solid.svg" },
-    comedy_show: {
+    comedia: {
         category_name: "Comedia",
         category_description: "Monólogos, comedias, improvisaciones, etc, cualquier disciplina que haga conectar con el público a través del humor",
         category_image: "/images/category_imgs/face-grin-tears-solid.svg" },
-    illustration: {
+    ilustracion: {
         category_name: "Ilustración",
         category_description: "Dibujos, ilustraciones, digitales o no, etc.",
         category_image: "/images/category_imgs/print-solid.svg" },
-    photography: {
+    fotografia: {
         category_name: "Fotografía",
         category_description: "La perspectiva del mundo que nos rodea a través de la fotografía estática",
         category_image: "/images/category_imgs/camera.svg" },
-    painting: {
+    pintura: {
         category_name: "Pintura",
         category_description: "Dibujos sobre lienzo o cualquier papel, distintas técnicas de pintura",
         category_image: "/images/category_imgs/palette-solid.svg"},
-    sculpture: {
+    escultura: {
         category_name: "Escultura",
         category_description: "El poder de las manos para crear arte en tres dimensiones",
         category_image: "/images/category_imgs/building.svg" },
-    graphic_design: {
+    diseño_grafico: {
         category_name: "Diseño gráfico",
         category_description: "Arte gráfico aplicado a la comunicación visual",
         category_image: "/images/category_imgs/arrow.svg" },
-    poetry: {
+    poesia: {
         category_name: "Poesía",
         category_description: "La belleza de las palabras para expresar emociones y pensamientos",
         category_image: "/images/category_imgs/scroll-solid.svg" },
-    literature: {
+    literatura: {
         category_name: "Literatura",
         category_description: "El arte de escribir blablabla escribes esto escribes aquello este es tu lugar, déjate embriagar por las palabras",
         category_image: "/images/category_imgs/pen-nib-solid.svg" },
-    cinema: {
+    cine: {
         category_name: "Cine",
         category_description: "Imágenes en movimiento, desde ficción a documental, en todos sus formatos",
         category_image: "/images/category_imgs/clapperboard.svg" },
-    animation: {
+    animacion: {
         category_name: "Animación",
         category_description: "Stop motion, animación digital, animación tradicional,",
         category_image: "/images/category_imgs/arrow.svg" },
-    video_art: {
+    video_arte: {
         category_name: "Vídeo arte",
         category_description: "Cuando el vídeo no solo cuenta una historia, sino que crea una realidad",
         category_image: "/images/category_imgs/video-solid.svg" },
-    ceramics: {
+    ceramica: {
         category_name: "Cerámica",
         category_description: "dadfjsal  djlsañe jae-j jelejekljflsdñfjf e",
         category_image: "/images/category_imgs/mug-saucer-solid.svg" },
-    jewelry: {
+    joyeria: {
         category_name: "Joyería",
         category_description: "Joyas hechas a mano con distintos materiales, desde los más comunes a los más exoticos",
         category_image: "/images/category_imgs/ring-solid.svg" },
-    textile_art: {
+    textil: {
         category_name: "Textil",
         category_description: "Diseño de moda, fabricación de prendas propias, crochet, distintas técnicas de tejido",
         category_image: "/images/category_imgs/vest-patches-solid.svg" },
-    handmade_crafts: {
-        category_name: "Manualidades",
+    artesania: {
+        category_name: "Artesanía",
         category_description: "Cualquier objeto hecho a mano, desde el mas simple hasta el mas complejo",
         category_image: "/images/category_imgs/stapler-solid.svg" },
-    activism: {
+    activismo: {
         category_name: "Activismo",
         category_description: "Capacidad de expresar mediante un discurso que se convierte en una acción",
         category_image: "/images/category_imgs/microphone-solid.svg" },
-    other: {
+    otra: {
         category_name: "Otros",
         category_description: "Para todas aquellas disciplinas que no encajan en una etiqueta específica. Al fin y al cabo, el arte es arte en todas sus formas.",
         category_image: "/images/category_imgs/handheart.svg" },
 };
 
+
 // COMPONENTE DE CATEGORIA
-function CategoryOne({preview = false }) {
-        // getter y setter: el primero es el estado actual, el segundo la función para actualizarlo
-        const [category, setCategory] = useState([]); //empieza con una lista vacía
-        const {onRouteChange} = useContext(RouteContext);
-        const firstProjectRef = useRef(null);
-        const [error, setError] = useState(null);
+function CategoryCard({ category, preview = false }) {
+    //para que no tenga en cuenta las _, que en la bbdd no están y da error
+    const normalizedKey = category.category_name.toLowerCase().replace(/ /g, "_");
 
-        useEffect(()=>{
-            handleLoadCategory();
-        },[]) //??
-        
-        // función que carga las categorías (fetch)
-        const handleLoadCategory = async () => {
-            const data  = await getCategoryByName(category.category_name);
-            if (data.error) {
-                setError(data.error);
-            } else {
-                setCategory(data); //si todo va bien, lo guarda en category
-            }
-        }
-        // función que hace scroll
-        const handleScrollToTop= ()=>{
-            firstProjectRef.current.scrollIntoView({behavior: 'smooth'})
-        }
-        //para que no tenga en cuenta las _, que en la bbdd no están y da error
-        const normalizedKey = category.category_name.toLowerCase().replace(/ /g, "_");
+    //combina los datos del backend con los del frontend (los de arriba)
+    const info = {
+        name: categoryExtraInfo[normalizedKey]?.category_name || "Categoría sin nombre",
+        description: categoryExtraInfo[normalizedKey]?.category_description || "Sin descripción", //busca en extrainfo si hay ese name, si lo hay, usa esa descripción
+        image: categoryExtraInfo[normalizedKey]?.category_image || "/images/default.jpg"
+    };
 
-        //combina los datos del backend con los del frontend (los de arriba)
-        const info = {
-            name: categoryExtraInfo[normalizedKey]?.category_name || "Categoría sin nombre",
-            description: categoryExtraInfo[normalizedKey]?.category_description || "Sin descripción", //busca en extrainfo si hay ese name, si lo hay, usa esa descripción
-            image: categoryExtraInfo[normalizedKey]?.category_image || "/images/default.jpg"
-        };
-    
-        // renderizado:
-        return (
-            <article className="categoryOne">
-                <section className="categoryOne__header">
-                    <h2 className="categoryOne__header-title">{info.name}</h2>
-                    {info.description && <p className="categoryOne__header-description">{info.description}</p>}
-                    <section className={"categoryOne__img"}>
-                        <img src={info.image} alt={info.name} />
-                    </section>
+    return (
+        <article className={`${preview ? "category__preview" : ""}`}>
+            <section className={`${preview ? "category__preview__main" : "category__main"}`}>
+                <section className={`${preview ? "category__preview__text" : "category__text"}`}>
+                    <h2 className={`${preview ? "category__preview__text-title" : "category__text-title"}`}>{info.name}</h2>
+                    {info.description && <p className={`${preview ? "category__preview__text-description" : "category__text-description"}`}>{info.description}</p>}
                 </section>
-                <section className="categoryOne__projects">
-                    <div ref={firstProjectRef}></div>
-                    {projects.length === 0 && <p>No hay proyectos disponibles</p>}
-                    {projects.map (project => {
-                        <div className="categoryOne_projects-card">
-                            <ProjectCard project={project} key={project.project_id} />
-                        </div>
-                    })},
-                    <button className="categoryOne__projects-scrollButton" onClick={handleScrollToTop}>Volver arriba</button>
+                <section className={`${preview ? "category__preview__img" : "category__img"}`}>
+                    <img src={info.image} alt={info.name} />
                 </section>
-            </article>
-        )
-    }
-    
-export default CategoryOne;
+            </section>
+            <a className={`${preview ? "category__preview__vermas" : "category__vermas"}`} href={`/categorias/${category.category_name}`}>Ver todos los proyectos de {info.name}</a>
+        </article>
+    );
+}
+
+export default CategoryCard;

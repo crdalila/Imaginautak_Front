@@ -1,10 +1,10 @@
 import { useState, useEffect, useContext, useRef } from "react";
 
-import CategoryCard from "./categoryCard";
-import { getAllCategories } from "../../../utils/category";
-import RouteContext from "../../../context/RouteContext";
+import CategoryCard from "../../components/category/categoryCard";
+import { getAllCategories } from "../../utils/category";
+import RouteContext from "../../context/RouteContext";
 import './categoryList.css';
-import App from "../../../App";
+import App from "../../App";
 
 
 // GET ALL CATEGORIES

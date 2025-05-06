@@ -1,10 +1,9 @@
 import { useState, useEffect, useContext, useRef } from "react";
 
-import ProjectCard from "./projectCard";
-import { getAllProject } from "../../../utils/project";
-import RouteContext from "../../../context/RouteContext";
+import ProjectCard from "../../components/project/projectCard";
+import { getAllProject } from "../../utils/project";
+import RouteContext from "../../context/RouteContext";
 import './projectList.css';
-import App from "../../../App";
 
 
 function ProjectList({preview = false}){

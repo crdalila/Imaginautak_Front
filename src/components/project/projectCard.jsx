@@ -1,70 +1,69 @@
 import './projectCard.css';
-import App from "../../../App";
 
 // CAMBIO EN LOS NOMBRES DE CATEGORÍA
 const categoryNameChange = {
-    music: {
+    musica: {
         category_name: "Música",
     },
-    theatre: {
+    teatro: {
         category_name: "Teatro",
     },
-    dance: {
+    danza: {
         category_name: "Danza",
     },
     performance: {
         category_name: "Performance",
     },
-    comedy_show: {
+    comedia: {
         category_name: "Show de comedia",
     },
-    illustration: {
+    ilustracion: {
         category_name: "Ilustración",
     },
-    photography: {
+    fotografia: {
         category_name: "Fotografía",
     },
-    painting: {
+    pintura: {
         category_name: "Pintura",
     },
-    sculpture: {
+    escultura: {
         category_name: "Escultura",
     },
-    graphic_design: {
+    diseño_grafico: {
         category_name: "Diseño gráfico",
     },
-    poetry: {
+    poesia: {
         category_name: "Poesía",
     },
-    literature: {
+    literatura: {
         category_name: "Literatura",
     },
-    cinema: {
+    cine: {
         category_name: "Cine",
     },
-    animation: {
+    animacion: {
         category_name: "Animación",
     },
-    video_art: {
+    video_arte: {
         category_name: "Vídeo arte",
     },
-    ceramics: {
+    ceramica: {
         category_name: "Cerámica",
     },
-    jewelry: {
+    joyeria: {
         category_name: "Joyería",
     },
-    textile_art: {
+    textil: {
         category_name: "Textil",
     },
-    handmade_crafts: {
-        category_name: "Manualidades",
+    artesania: {
+        category_name: "Artesanía",
     },
-    activism: {
+    activismo: {
         category_name: "Activismo",
     },
-    other: {
-        category_name: "Otros",
+    otra: {
+        category_name: "Otra",
     },
 };
 

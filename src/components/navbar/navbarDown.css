@@ -3,4 +3,16 @@
     flex-direction: row;
     justify-content: space-around;
     gap: 1em;
+    background-color: white;
+    border-top: grey solid 1px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+}
+
+.nav__down-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

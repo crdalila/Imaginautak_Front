@@ -5,6 +5,14 @@ Para ver este proyecto al completo, necesitas la parte de BackEnd que está en *
 
 .env y .env.example
 
+
+SISSTEMA DE CARPETAS
+
+utils: los fetch a la API de backend
+pages: las páginas principales
+componentes: los componentes
+context:
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
