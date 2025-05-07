@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './categoryCard.css';
+import './CategoryCard.css';
 
 // AGREGAMOS DATOS DE CATEOGRÍA ADICIONALES.
 // lo hacemos aquí y no en la bbdd porque no nos interesa que la bbdd guarde esto

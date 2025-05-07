@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import './projectCard.css';
 
 // CAMBIO EN LOS NOMBRES DE CATEGORÍA
@@ -114,7 +116,9 @@ function ProjectCard({ project, preview = false }) {
                     );
                 })}
                 </section>
-                <a href="#">Ver el proyecto completo</a>
+                <Link to={`/proyectos/${info.project_id}`} className={`${preview ? "project__preview__vermas" : "project__vermas"}`}>
+                    Ver el proyecto completo
+               </Link>
             </section>
         </article>
     );

@@ -6,6 +6,13 @@ async function getAllProject(){
     return projects;
 }
 
+// GET PROJECT BY ID
+async function getProjectById(project_id){
+    const project = await fetchData(`/proyectos/${project_id}`)
+    return project;
+}
+
 export {
-    getAllProject
+    getAllProject,
+    getProjectById
 }

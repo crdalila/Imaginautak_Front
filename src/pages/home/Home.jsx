@@ -4,6 +4,7 @@ import CategoryList from "../category/categoryList";
 import ArtistList from "../artist/artistList";
 import ProjectList from "../project/projectList";
 import NavbarFilters from "../../components/navbar/navbarFilters";
+import './Home.css';
 
 function HomePage(){
     const { categories, artists, projects } = useLoaderData();
