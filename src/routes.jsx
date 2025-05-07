@@ -4,12 +4,13 @@ import Root from './pages/root/Root';
 import CategoryList from './pages/category/categoryList';
 import CategoryOne from './pages/category/categoryOne';
 import ArtistList from './pages/artist/artistList';
+import ArtistOne from './pages/artist/artistOne';
 import ProjectList from './pages/project/projectList';
 import HomePage from './pages/home/Home';
 import Auth from './pages/auth/Auth';
 
-import { getAllCategories, getCategoryByName } from './utils/category';
-import { getAllArtist } from './utils/artist';
+import { getAllCategories, getCategoryById } from './utils/category';
+import { getAllArtist, getArtistById } from './utils/artist';
 import { getAllProject } from './utils/project';
 
 const router  = createBrowserRouter([
@@ -35,14 +36,19 @@ const router  = createBrowserRouter([
                 loader:getAllCategories
             },
             {
-                path: "/categorias/:category_name",
+                path: "/categorias/:id",
                 element: <CategoryOne />,
-                loader: getCategoryByName
+                loader: async ({params}) => getCategoryById(params.id) //tiene que sacar el id de esta forma
             },
             {
                 path: "/artistas",
                 element: <ArtistList />,
                 loader: getAllArtist
+            },
+            {
+                path: "/artistas/:id",
+                element: <ArtistOne />,
+                loader: async ({params}) => getArtistById(params.id) //tiene que sacar el id de esta forma
             },
             {
                 path: "/proyectos",

@@ -76,22 +76,26 @@ function ProjectCard({ project, preview = false }) {
         project_id: project.project_id || "Proyecto sin id",
         title: project.title || "Proyecto sin título",
         description: project.description || "Sin descripción",
-        project_imgs: project.project_imgs || "/images/default.jpg",
-        categories: project.categories || "Sin categorías",
-        artists: project.artists || "Sin artistas asociados",
+        project_imgs: project.project_imgs || [],
+        categories: project.categories || [],
+        artists: project.artists || [],
     };
 
     //renderizado:
     return (
         <article className="project">
-{            <section className="project__text">
+            <section className="project__text">
                 <h2 className="project__text-title">{info.title}</h2>
-                {info.artists.map(artist => (
-                    <a key={artist.artist_id} className="project__text-artist" href="#">
-                        {artist.artistic_name}
-                    </a>
-                ))}
-            </section>}
+                {info.artists.length > 0 ? (
+                    info.artists.map(artist => (
+                        <a key={artist.artist_id} className="project__text-artist" href="#">
+                            {artist.artistic_name}
+                        </a>
+                    ))
+                ) : (
+                    <p className="project__text-artist">Sin artistas asociados</p>
+                )}
+            </section>
 
             <section className="project__img">
                 {(info.project_imgs === 1) ? <img src={info.project_imgs} alt={info.title} /> : <img src={info.project_imgs[0]} alt={info.title} />}

@@ -20,7 +20,7 @@ function ArtistCard({ artist, preview = false }) {
             </section>
             <h2 className={`${preview ? "artist__preview__title" : "artist__title"}`}>{info.artistic_name}</h2>
             {info.bio && <p className={`${preview ? "artist__preview__bio" : "artist__bio"}`}>{info.bio}</p>}
-            <Link to ={`/artistas/${artist.artistic_name}`} className={`${preview ? "artist__preview__vermas" : "artist__vermas"}`}>
+            <Link to ={`/artistas/${artist.artist_id}`} className={`${preview ? "artist__preview__vermas" : "artist__vermas"}`}>
             Ir al perfil de {info.artistic_name}
             </Link>
         </article>

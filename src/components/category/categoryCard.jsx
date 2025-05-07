@@ -98,6 +98,7 @@ function CategoryCard({ category, preview = false }) {
 
     //combina los datos del backend con los del frontend (los de arriba)
     const info = {
+        category_id: category.category_id,
         name: categoryExtraInfo[normalizedKey]?.category_name || "Categoría sin nombre",
         description: categoryExtraInfo[normalizedKey]?.category_description || "Sin descripción", //busca en extrainfo si hay ese name, si lo hay, usa esa descripción
         image: categoryExtraInfo[normalizedKey]?.category_image || "/images/default.jpg"
@@ -114,7 +115,7 @@ function CategoryCard({ category, preview = false }) {
                     <img src={info.image} alt={info.name} />
                 </section>
             </section>
-            <Link to ={`/categorias/${category.category_name}`} className={`${preview ? "category__preview__vermas" : "category__vermas"}`}>
+            <Link to ={`/categorias/${category.category_id}`} className={`${preview ? "category__preview__vermas" : "category__vermas"}`}>
             Ver todos los proyectos de {info.name}
             </Link>
         </article>

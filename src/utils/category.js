@@ -12,14 +12,8 @@ async function getCategoryById(category_id){
     return category;
 }
 
-//GET CATEGORY BY NAME
-async function getCategoryByName(category_name){
-    const category = await fetchData(`/categorias/${category_name}`)
-    return category;
-}
 
 export {
     getAllCategories,
     getCategoryById,
-    getCategoryByName,
 }
