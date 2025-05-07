@@ -80,7 +80,7 @@ function ProjectCard({ project, preview = false }) {
         description: project.description || "Sin descripción",
         project_imgs: project.project_imgs || [],
         categories: project.categories || [],
-        artists: project.artists || [],
+        artists: project.artists || []
     };
 
     //renderizado:
@@ -90,7 +90,7 @@ function ProjectCard({ project, preview = false }) {
                 <h2 className="project__text-title">{info.title}</h2>
                 {info.artists.length > 0 ? (
                     info.artists.map(artist => (
-                        <Link to ={`/artistas/${project.artists.artist_id}`} key={artist.artist_id} className="project__text-artist">
+                        <Link to ={`/artistas/${artist.artist_id}`} key={artist.artist_id} className="project__text-artist">
                             {artist.artistic_name}
                         </Link>
 
