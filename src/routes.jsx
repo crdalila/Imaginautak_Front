@@ -1,4 +1,4 @@
-import {createBrowserRouter} from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import Root from './pages/root/Root';
 
 import CategoryList from './pages/category/categoryList';
@@ -20,11 +20,19 @@ const router  = createBrowserRouter([
             {
                 path: "/",
                 element: <HomePage />,
+                loader: async () => {
+                    const [categories, artists, projects] = await Promise.all([
+                      getAllCategories(),
+                      getAllArtist(),
+                      getAllProject()
+                    ]);
+                    return { categories, artists, projects };
+                  }
             },
             {
-                path: "/categorias",
+                path: "categorias",
                 element: <CategoryList />,
-                loader: getAllCategories
+                loader:getAllCategories
             },
             {
                 path: "/categorias/:category_name",

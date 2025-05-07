@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext, useRef } from "react";
+import { useLoaderData } from "react-router-dom";
 
 import ProjectCard from "../../components/project/projectCard";
 import { getAllProject } from "../../utils/project";
@@ -6,26 +7,21 @@ import RouteContext from "../../context/RouteContext";
 import './projectList.css';
 
 
-function ProjectList({preview = false}){
-    // getter y setter: el primero es el estado actual, el segundo la función para actualizarlo
-    const [projects, setProjects] = useState([]); //empieza con una lista vacía
-    const {onRouteChange} = useContext(RouteContext);
-    const firstProjectRef = useRef(null);
+function ProjectList({ preview = false, initialData = null }) {
+    const loaderData = useLoaderData(); //solo se activa si hay loader, si no viene de home
+    const [projects, setProjects] = useState(initialData || loaderData || []); //utiliza initialData si viene de Home, loaderData si viene de CategoryList
     const [error, setError] = useState(null);
+    const firstProjectRef = useRef(null);
     
-    useEffect(()=>{
-        handleLoadProjects();
-    },[])
-    // función que carga los proyectos
-    const handleLoadProjects = async () => {
-        const data  = await getAllProject();
-        if (data.error) {
-            setError(data.error);
-        } else {
-            setProjects(data); //si todo va bien, lo guarda en projects
+    useEffect(() => {
+        if (!initialData && !loaderData) {
+            //si no viene nada, haz el fetch manual
+            fetch('/proyectos')
+                .then(res => res.json())
+                .then(data => setProjects(data))
+                .catch(err => console.error(err));
         }
-    }
-
+    }, []);
     const handleScrollToTop= ()=>{
         firstProjectRef.current.scrollIntoView({behavior: 'smooth'})
     }

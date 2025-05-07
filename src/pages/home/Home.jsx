@@ -1,18 +1,13 @@
-import { useState, useEffect } from "react";
+import { useLoaderData } from "react-router-dom";
 
-import './Home.css';
 import CategoryList from "../category/categoryList";
 import ArtistList from "../artist/artistList";
 import ProjectList from "../project/projectList";
 import NavbarFilters from "../../components/navbar/navbarFilters";
 
-function HomePage({onRouteChange}){
-    const categories = <CategoryList onRouteChange={onRouteChange} preview ={true} />;
-    const artists = <ArtistList onRouteChange={onRouteChange} preview={true} />;
-    const projects = <ProjectList onRouteChange={onRouteChange} preview={true} />;
-    const navbar_filters = NavbarFilters({onRouteChange});
+function HomePage(){
+    const { categories, artists, projects } = useLoaderData();
 
-    // renderizado:
     return (
         <section className="home">
             <section className="home__header">
@@ -21,18 +16,18 @@ function HomePage({onRouteChange}){
             </section>
 
             <section className="home__navbar-filters">
-                {navbar_filters}
+                <NavbarFilters />
             </section>
 
             <section className="home__content">
                 <section className="home__content-categories">
-                    {categories}
+                    <CategoryList preview={true} initialData={categories} />
                 </section>
                 <section className="home__content-artist">
-                    {artists}
+                    <ArtistList preview={true} initialData={artists} />
                 </section>
                 <section className="home__content-projects">
-                    {projects}
+                    <ProjectList preview={true} initialData={projects} />
                 </section>
             </section>
         </section>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './categoryCard.css';
 
 // AGREGAMOS DATOS DE CATEOGRÍA ADICIONALES.
@@ -113,7 +114,9 @@ function CategoryCard({ category, preview = false }) {
                     <img src={info.image} alt={info.name} />
                 </section>
             </section>
-            <a className={`${preview ? "category__preview__vermas" : "category__vermas"}`} href={`/categorias/${category.category_name}`}>Ver todos los proyectos de {info.name}</a>
+            <Link to ={`/categorias/${category.category_name}`} className={`${preview ? "category__preview__vermas" : "category__vermas"}`}>
+            Ver todos los proyectos de {info.name}
+            </Link>
         </article>
     );
 }

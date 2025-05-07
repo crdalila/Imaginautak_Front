@@ -1,17 +1,31 @@
+import { Link } from "react-router-dom";
+
 import './navbarFilters.css';
-function NavbarFilters ({route, onRouteChange}){
+function NavbarFilters (){
 
     return (
         <nav>
             <ul className="nav">
-                <li className={"nav__button " + (route === "categorias" ? "active" : "") }>
-                    <button onClick={() => onRouteChange("categorias")}>Categorías</button>
+                <li className={"nav__button"}>
+                    <button>
+                        <Link to="/categorias">
+                            Categorías
+                        </Link>
+                    </button>
                 </li>
-                <li className={"nav__button " + (route === "artistas" ? "active" : "") }>
-                    <button onClick={() => onRouteChange("artistas")}>Artistas</button>
+                <li className={"nav__button"}>
+                    <button>
+                        <Link to="/artistas">
+                            Artistas
+                        </Link>
+                    </button>
                 </li>
-                <li className={"nav__button " + (route === "proyectos" ? "active" : "") }>
-                    <button onClick={() => onRouteChange("proyectos")}>Proyectos</button>
+                <li className={"nav__button"}>
+                    <button>
+                        <Link to="/proyectos">
+                            Proyectos
+                        </Link>
+                    </button>
                 </li>
             </ul>
         </nav>

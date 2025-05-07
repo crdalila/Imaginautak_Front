@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import './artistCard.css';
 
 // COMPONENTE DE ARTISTA
@@ -18,7 +20,9 @@ function ArtistCard({ artist, preview = false }) {
             </section>
             <h2 className={`${preview ? "artist__preview__title" : "artist__title"}`}>{info.artistic_name}</h2>
             {info.bio && <p className={`${preview ? "artist__preview__bio" : "artist__bio"}`}>{info.bio}</p>}
-            <a className={`${preview ? "artist__preview__vermas" : "artist__vermas"}`} href="#">Ir al perfil de {info.artistic_name}</a>
+            <Link to ={`/artistas/${artist.artistic_name}`} className={`${preview ? "artist__preview__vermas" : "artist__vermas"}`}>
+            Ir al perfil de {info.artistic_name}
+            </Link>
         </article>
     );
 }

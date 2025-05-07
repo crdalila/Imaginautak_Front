@@ -1,33 +1,27 @@
 import { useState, useEffect, useContext, useRef } from "react";
+import { useLoaderData } from "react-router-dom";
 
 import CategoryCard from "../../components/category/categoryCard";
-import { getAllCategories } from "../../utils/category";
-import RouteContext from "../../context/RouteContext";
 import './categoryList.css';
-import App from "../../App";
 
 
 // GET ALL CATEGORIES
-function CategoryList({preview = false }){
-    // getter y setter: el primero es el estado actual, el segundo la función para actualizarlo
-    const [categories, setCategories] = useState([]); //empieza con una lista vacía
-    const {onRouteChange} = useContext(RouteContext);
-    const firstCategoryRef = useRef(null);
+function CategoryList({ preview = false, initialData = null }) {
+    const loaderData = useLoaderData(); //solo se activa si hay loader, si no viene de home
+    const [categories, setCategories] = useState(initialData || loaderData || []); //utiliza initialData si viene de Home, loaderData si viene de CategoryList
     const [error, setError] = useState(null);
+    const firstCategoryRef = useRef(null);
     
-    useEffect(()=>{
-        handleLoadCategories();
-    },[])
-    
-    // función que carga las categorías
-    const handleLoadCategories = async () => {
-        const data  = await getAllCategories();
-        if (data.error) {
-            setError(data.error);
-        } else {
-            setCategories(data); //si todo va bien, lo guarda en categories
+    useEffect(() => {
+        if (!initialData && !loaderData) {
+            //si no viene nada, haz el fetch manual
+            fetch('/categorias')
+                .then(res => res.json())
+                .then(data => setCategories(data))
+                .catch(err => console.error(err));
         }
-    }
+    }, []);
+
     // función que hace scroll
     const handleScrollToTop= ()=>{
         firstCategoryRef.current.scrollIntoView({behavior: 'smooth'})

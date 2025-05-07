@@ -84,14 +84,14 @@ function ProjectCard({ project, preview = false }) {
     //renderizado:
     return (
         <article className="project">
-            <section className="project__text">
+{            <section className="project__text">
                 <h2 className="project__text-title">{info.title}</h2>
                 {info.artists.map(artist => (
                     <a key={artist.artist_id} className="project__text-artist" href="#">
                         {artist.artistic_name}
                     </a>
                 ))}
-            </section>
+            </section>}
 
             <section className="project__img">
                 {(info.project_imgs === 1) ? <img src={info.project_imgs} alt={info.title} /> : <img src={info.project_imgs[0]} alt={info.title} />}
