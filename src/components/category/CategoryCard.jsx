@@ -32,8 +32,8 @@ const categoryExtraInfo = {
         category_name: "Fotografía",
         category_description: "La perspectiva del mundo que nos rodea a través de la fotografía estática",
         category_image: "/images/category_imgs/camera.svg" },
-    pintura: {
-        category_name: "Pintura",
+    dibujo: {
+        category_name: "Dibujo",
         category_description: "Dibujos sobre lienzo o cualquier papel, distintas técnicas de pintura",
         category_image: "/images/category_imgs/palette-solid.svg"},
     escultura: {
@@ -43,7 +43,7 @@ const categoryExtraInfo = {
     diseño_grafico: {
         category_name: "Diseño gráfico",
         category_description: "Arte gráfico aplicado a la comunicación visual",
-        category_image: "/images/category_imgs/arrow.svg" },
+        category_image: "/images/category_imgs/pen-ruler-solid.svg" },
     poesia: {
         category_name: "Poesía",
         category_description: "La belleza de las palabras para expresar emociones y pensamientos",

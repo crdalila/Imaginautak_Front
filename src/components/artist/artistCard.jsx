@@ -5,7 +5,6 @@ import './artistCard.css';
 // COMPONENTE DE ARTISTA
 function ArtistCard({ artist, preview = false }) {
 
-    //combina los datos del backend con los del frontend (los de arriba)
     const info = {
         artist_id: artist.artist_id || "Artista sin id",
         artistic_name: artist.artistic_name || "Artista sin nombre",

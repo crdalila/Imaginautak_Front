@@ -25,8 +25,8 @@ const categoryNameChange = {
     fotografia: {
         category_name: "Fotografía",
     },
-    pintura: {
-        category_name: "Pintura",
+    dibujo: {
+        category_name: "Dibujo",
     },
     escultura: {
         category_name: "Escultura",
@@ -90,9 +90,10 @@ function ProjectCard({ project, preview = false }) {
                 <h2 className="project__text-title">{info.title}</h2>
                 {info.artists.length > 0 ? (
                     info.artists.map(artist => (
-                        <a key={artist.artist_id} className="project__text-artist" href="#">
+                        <Link to ={`/artistas/${project.artists.artist_id}`} key={artist.artist_id} className="project__text-artist">
                             {artist.artistic_name}
-                        </a>
+                        </Link>
+
                     ))
                 ) : (
                     <p className="project__text-artist">Sin artistas asociados</p>

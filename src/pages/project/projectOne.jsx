@@ -14,14 +14,25 @@ function ProjectOne() {
 
   return (
     <article className="projectOne">
-      
-      <h2 className="projectOne__header-title">{project.title}</h2>
+      <h2 className="projectOne__title">{project.title}</h2>
 
-      <p>Proyecto de </p><Link to={`/artistas/${project.artists.artist_id}`}>{project.artists.artistic_name}</Link>
+      <section className='projectOne__artists'>
+        {project.artists.length > 0 ? (
+          project.artists.map(artist => (
+            <Link to ={`/artistas/${artist.artist_id}`} key={artist.artist_id}>
+            {artist.artistic_name}
+            </Link>
+          ))
+        ) : (
+            <p>Sin artistas asociados</p>
+        )}
+      </section>
+
+      <Link to={`/artistas/${project.artists.artist_id}`}>{project.artists.artistic_name}</Link>
 
       <p>Fans TODO despegable que se pueda ver quiénes son: {project.favorites_count}</p>
       
-      <p className="projectOne__header-description">{project.description}</p>
+      <p className="projectOne__description">{project.description}</p>
       
       <div className="projectOne__img">
         <img src={project.project_imgs} alt={project.title} />
@@ -32,7 +43,7 @@ function ProjectOne() {
           <p>No hay categorías disponibles para este proyecto</p>
         ) : (
           project.categories.map(category => (
-            <div className="projectOne_category-card" key={category.category_id}>
+            <div className="projectOne__categories-oneCategory" key={category.category_id}>
               <CategoryCard category={category} />
             </div>
           ))
