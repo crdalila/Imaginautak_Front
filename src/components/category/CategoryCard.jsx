@@ -92,7 +92,7 @@ const categoryExtraInfo = {
 
 
 // COMPONENTE DE CATEGORIA
-function CategoryCard({ category, preview = false }) {
+function CategoryCard({ category }) {
     //para que no tenga en cuenta las _, que en la bbdd no están y da error
     const normalizedKey = category.category_name.toLowerCase().replace(/ /g, "_");
 

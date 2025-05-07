@@ -1,0 +1,17 @@
+.previewCard__artist {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 1em;
+}
+
+.previewCard__artist-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.previewCard__artist-img img {
+    display: flex;
+    height: 200px;
+}

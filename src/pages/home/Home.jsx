@@ -1,8 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 
 import CategoryPreview from "../../components/home/CategoryPreview";
-import ArtistList from "../artist/artistList";
-import ProjectList from "../project/projectList";
+import ArtistPreview from "../../components/home/ArtistPreview";
+import ProjectPreview from "../../components/home/ProjectPreview";
 import NavbarFilters from "../../components/navbar/navbarFilters";
 import './Home.css';
 
@@ -24,13 +24,16 @@ function HomePage(){
                 <section className="home__content-categories">
                     <CategoryPreview initialData={categories} />
                 </section>
+
                 <section className="home__content-artist">
-                    <ArtistList preview={true} initialData={artists} />
+                    <ArtistPreview initialData={artists} />
                 </section>
+                
                 <section className="home__content-projects">
-                    <ProjectList preview={true} initialData={projects} />
+                    <ProjectPreview initialData={projects} />
                 </section>
             </section>
+            
         </section>
     )
 }

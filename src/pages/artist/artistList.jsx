@@ -33,16 +33,12 @@ function ArtistList({ preview = false, initialData = null }) {
             {error && <p className="error"> {error}</p>}
             <section className="artist__getAll-cards">
                 {artists.length == 0 && <p>No hay artistas disponibles</p>}
-                <div className={preview ? "artist__carousel" : ""}>
-                    {artists
-                        .slice(0, preview ? 5 : artists.length)
-                        .map (artist => (
-                            <div className={preview ? "artist__carousel-item" : ""} key={artist.artist_id}>
-                                    <ArtistCard artist={artist} preview={preview} />
-                            </div> 
-                    ))}
-                </div>
-                <button className={preview ? "artist__preview-buttonUp" : "artist__buttonUp"} onClick={handleScrollToTop}>Volver arriba</button>
+                {artists.map (artist => (
+                    <div className="artist__getAll-card">
+                        <ArtistCard artist={artist} />
+                    </div> 
+                ))}
+                <button className="artist__buttonUp" onClick={handleScrollToTop}>Volver arriba</button>
             </section>
         </section>
     )

@@ -13,14 +13,14 @@ function ArtistCard({ artist, preview = false }) {
     };
 
     return (
-        <article className={`${preview ? "artist__preview" : "artist"}`}>
-            <section className={`${preview ? "artist__preview__img" : "artist__img"}`}>
+        <article className="artist">
+            <section className="artist__img">
                 <img src={info.img} alt={info.artistic_name} />
             </section>
-            <h2 className={`${preview ? "artist__preview__title" : "artist__title"}`}>{info.artistic_name}</h2>
-            {info.bio && <p className={`${preview ? "artist__preview__bio" : "artist__bio"}`}>{info.bio}</p>}
-            <Link to ={`/artistas/${artist.artist_id}`} className={`${preview ? "artist__preview__vermas" : "artist__vermas"}`}>
-            Ir al perfil de {info.artistic_name}
+            <h2 className="artist__title">{info.artistic_name}</h2>
+            <p className="artist__bio">{info.bio}</p>
+            <Link to ={`/artistas/${artist.artist_id}`} className="artist__vermas">
+                Ir al perfil de {info.artistic_name}
             </Link>
         </article>
     );

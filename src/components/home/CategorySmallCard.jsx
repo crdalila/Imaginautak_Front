@@ -104,10 +104,13 @@ function CategorySmallCard({ category }) {
     return (
         <Link to={`/categorias/${info.id}`}>
             <article className="previewCard previewCard__category">
+                
                 <h2 className="previewCard__title">{info.name}</h2>
+
                 <section className="previewCard__img previewCard__category-img">
                     <img src={info.image} alt={info.name} />
                 </section>
+            
             </article>
         </Link>
     );

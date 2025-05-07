@@ -33,7 +33,6 @@ function CategoryPreview({ initialData = null }) {
             </section>
 
             <section className="preview__category-cards preview__carousel">
-                <div ref={firstCategoryRef}></div>
                 {categories.length === 0 && <p>No hay categorías disponibles</p>}
                     {categories.map (category => (
                         <div className="preview__category-card preview__carousel-item">
@@ -41,6 +40,7 @@ function CategoryPreview({ initialData = null }) {
                         </div>
                     ))}
             </section>
+            
         </section>
     )
 }
