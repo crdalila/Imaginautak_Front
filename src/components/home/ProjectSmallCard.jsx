@@ -20,7 +20,7 @@ function ProjectSmallCard({ project }) {
                 </section>
 
                 <section className="previewCard__img previewCard__project-img">
-                    <img src={project.projects_imgs} alt={project.title} />
+                    <img src={project.project_imgs} alt={project.title} />
                 </section>
 
             </article>

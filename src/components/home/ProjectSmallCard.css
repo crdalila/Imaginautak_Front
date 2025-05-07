@@ -3,7 +3,7 @@
     flex-direction: column;
     gap: 2em;
     padding: 1em;
-    width: max-content;
+    width: inherit;
 }
 .previewCard__project-text {
     display: flex;
@@ -24,4 +24,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}   
+}
+
+.previewCard__project-img img {
+    display: flex;
+    height: 200px;
+}

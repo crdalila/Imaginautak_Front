@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import './navbarFilters.css';
 function NavbarFilters (){
@@ -8,23 +8,23 @@ function NavbarFilters (){
             <ul className="nav">
                 <li className={"nav__button"}>
                     <button>
-                        <Link to="/categorias">
+                        <NavLink to="/categorias">
                             Categorías
-                        </Link>
+                        </NavLink>
                     </button>
                 </li>
                 <li className={"nav__button"}>
                     <button>
-                        <Link to="/artistas">
+                        <NavLink to="/artistas">
                             Artistas
-                        </Link>
+                        </NavLink>
                     </button>
                 </li>
                 <li className={"nav__button"}>
                     <button>
-                        <Link to="/proyectos">
+                        <NavLink to="/proyectos">
                             Proyectos
-                        </Link>
+                        </NavLink>
                     </button>
                 </li>
             </ul>
