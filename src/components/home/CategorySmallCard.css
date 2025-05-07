@@ -1,0 +1,30 @@
+/* CATEGORY para el CSS del getAll */
+
+.previewCard {
+    text-decoration: none;
+}
+
+.previewCard__category {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 1em;
+    padding-top: 1.3em;
+}
+
+.previewCard__title {
+    text-align: center;
+    font-family: var(--second-font);
+    font-size: 1em;
+}
+
+.previewCard__category-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.previewCard__category-img img {
+    display: flex;
+    height: 75px;
+}

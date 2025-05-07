@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
-import './CategoryCard.css';
+import './CategorySmallCard.css';
 
-// AGREGAMOS DATOS DE CATEOGRÍA ADICIONALES.
-// lo hacemos aquí y no en la bbdd porque no nos interesa que la bbdd guarde esto
+// DATOS EXTRA DEL CATEGORY (que no necesitamos en la bbdd)
 const categoryExtraInfo = {
     musica: {
         category_name: "Música",
@@ -90,29 +89,23 @@ const categoryExtraInfo = {
         category_image: "/images/category_imgs/handheart.svg" },
 };
 
-
-// COMPONENTE DE CATEGORIA
-function CategoryCard({ category, preview = false }) {
+function CategorySmallCard({ category }) {
     //para que no tenga en cuenta las _, que en la bbdd no están y da error
     const normalizedKey = category.category_name.toLowerCase().replace(/ /g, "_");
 
     //combina los datos del backend con los del frontend (los de arriba)
     const info = {
         id: category.category_id,
-        name: categoryExtraInfo[normalizedKey]?.category_name || "Categoría sin nombre",
-        description: categoryExtraInfo[normalizedKey]?.category_description || "Sin descripción", //busca en extrainfo si hay ese name, si lo hay, usa esa descripción
+        name: categoryExtraInfo[normalizedKey]?.category_name || "Categoría sin nombre", //busca en extrainfo si hay ese name, si lo hay, usa el nombre específico de extrainfo
+        description: categoryExtraInfo[normalizedKey]?.category_description || "Sin descripción", //busca en extrainfo si hay ese name, si lo hay, usa la descripción
         image: categoryExtraInfo[normalizedKey]?.category_image || "/images/category_imgs/compass.svg",
     };
 
     return (
-        <Link to ={`/categorias/${info.id}`}>
-            <article className="card category__card">
-                <section className="category__text">
-                    <h2 className="category__text-title">{info.name}</h2>
-                    <p className="category__text-description">{info.description}</p>
-                </section>
-                
-                <section className="category__img">
+        <Link to={`/categorias/${info.id}`}>
+            <article className="previewCard previewCard__category">
+                <h2 className="previewCard__title">{info.name}</h2>
+                <section className="previewCard__img previewCard__category-img">
                     <img src={info.image} alt={info.name} />
                 </section>
             </article>
@@ -120,4 +113,4 @@ function CategoryCard({ category, preview = false }) {
     );
 }
 
-export default CategoryCard;
+export default CategorySmallCard;

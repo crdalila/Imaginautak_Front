@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 
-import CategoryList from "../category/categoryList";
+import CategoryPreview from "../../components/home/CategoryPreview";
 import ArtistList from "../artist/artistList";
 import ProjectList from "../project/projectList";
 import NavbarFilters from "../../components/navbar/navbarFilters";
@@ -22,7 +22,7 @@ function HomePage(){
 
             <section className="home__content">
                 <section className="home__content-categories">
-                    <CategoryList preview={true} initialData={categories} />
+                    <CategoryPreview initialData={categories} />
                 </section>
                 <section className="home__content-artist">
                     <ArtistList preview={true} initialData={artists} />
