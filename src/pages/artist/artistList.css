@@ -40,6 +40,10 @@
     font-weight: bold;
 }
 
+.getAll__header em {
+    font-style: italic;
+}
+
 
 /* COMPARTIDO: navbar de filtros (category, artist y project) */
 

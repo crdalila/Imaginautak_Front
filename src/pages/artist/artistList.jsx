@@ -7,7 +7,7 @@ import NavbarFilters from "../../components/navbar/navbarFilters";
 import './artistList.css';
 
 
-function ArtistList({ preview = false, initialData = null }) {
+function ArtistList({ initialData = null }) {
     const loaderData = useLoaderData(); //solo se activa si hay loader, si no viene de home
     const [artists, setArtists] = useState(initialData || loaderData || []); //utiliza initialData si viene de Home, loaderData si viene de CategoryList
     const [error, setError] = useState(null);
@@ -41,10 +41,8 @@ function ArtistList({ preview = false, initialData = null }) {
                 <h1>Artistas</h1>
                 <ol>
                     <li>Persona dotada de la capacidad o habilidad necesarias para alguna de las bellas artes.</li>
-                    <li>Persona que actúa profesionalmente en un espectáculo teatral, cinematográfico, circense, etc., interpretando ante el público.
-                    </li>
                 </ol>
-                <p>Puede que no lo diga la RAE, pero un artista es aquella persona que dedica su tiempo, esfuerzo e inspiración a la creación de obras artísticas. Es <s>probable</s> posible que no te paguen por ello, puede que no tengas un talento innato (nadie lo tiene, el talento es dedicación y constancia), pero tú sigues con ello. Sigues con tu obra, sigues creando por amor al arte. Y eso, <i>eso</i>, te convierte en <strong>artista</strong>.</p>
+                <p>Puede que no lo diga la RAE y es <s>probable</s> posible que no te paguen por ello. Puede que ni siquiera tengas un talento innato (nadie lo tiene, el talento es dedicación y constancia), pero tú sigues con ello. Sigues creando por amor al arte. Y eso, <em>eso</em>, te convierte en <strong>artista</strong>.</p>
                 {error && <p className="error"> {error}</p>}
             </section>
 
@@ -54,7 +52,6 @@ function ArtistList({ preview = false, initialData = null }) {
 
             <section className="artist__cards">
                 {artists.length == 0 && <p>No hay artistas disponibles</p>}
-                
                 {artists.map (artist => (
                     <div className="artist__cards-card">
                         <ArtistCard artist={artist} />
