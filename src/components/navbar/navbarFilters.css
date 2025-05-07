@@ -1,9 +1,12 @@
-/* NAVBAR-FILTERS */
+/* COMPARTIDO: navbar genérico */
+
 .nav {
     display: flex;
     flex-direction: row;
     gap: 1em;
 }
+
+/* COMPARTIDO: botones genéricos */
 
 button {
     padding-inline: 1em;

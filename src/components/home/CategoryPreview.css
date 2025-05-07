@@ -1,4 +1,4 @@
-/* COMPARTIDO POR TODOS LOS PREVIEWS (categoria, artista y proyecto)*/
+/* COMPARTIDO: header de los previews del home */
 
 .preview__header h1 {
     font-family: var(--second-font);
@@ -15,7 +15,7 @@
 }
 
 
-/* CARRUSEL COMPARTIDO POR TODO HOME*/
+/* COMPARTIDO: carrusel */
 
 .preview__carousel {
     display: flex;

@@ -6,14 +6,18 @@ import { AuthProvider } from "../../context/AuthContext";
 function Root() {
     return (
         <AuthProvider>
+            
             <header>
             </header>
+            
             <main>
                 <Outlet />
             </main>
+
             <footer>
                 < NavbarDown />
             </footer>
+
         </AuthProvider>
     )
 }

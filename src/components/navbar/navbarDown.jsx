@@ -14,6 +14,7 @@ function NavbarDown ({}){
     return (
         <nav>
             <ul className="nav__down">
+                
                 <li className={"nav__down-button"} >
                     <button>
                         < NavLink to="/">
@@ -23,6 +24,7 @@ function NavbarDown ({}){
                         <p>Home</p>
                     </button>
                 </li>
+
                 <li className={"nav__down-button"} >
                     <button>
                         < NavLink to="/login">
@@ -32,6 +34,7 @@ function NavbarDown ({}){
                     </NavLink>
                     </button>
                 </li>
+
             </ul>
         </nav>
     )
