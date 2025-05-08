@@ -95,11 +95,17 @@ function ProjectCard({ project }) {
             </section>
 
             <section className="project__img">
-                <img src={project.project_imgs} alt={project.title} />
+                {project.project_imgs && (
+                    <img src={project.project_imgs} alt={project.title} />
+                )}
             </section>
 
-            <p className="project__description">Descripción: {project.description}</p>
-
+            <section className="project__description">
+                {project.description && (
+                    <p>Descripción: {project.description}</p>
+                )}
+            </section>
+            
             <section className="project__card-categories">
                 <p>Categoría(s):</p>
                 {project.categories?.map(category => (

@@ -20,11 +20,51 @@
     padding: 1em;
 }
 
+.ArtistOne__data-bio {
+    font-family: var(--main-font);
+    font-size: 1em;
+    text-align: justify;
+    padding-inline: 1em;
+}
+
+.ArtistOne__links h2, .ArtistOne__projects-title {
+    font-family: var(--second-font);
+    font-size: 1.1em;
+    text-align: center;
+}
 
 .ArtistOne__links {
+    border-top: solid grey 1px;
+    padding-top: 1em;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+    gap: 1em;
+    padding: 1em;
+}
+
+.ArtistOne__links-rrss {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    gap: 1em;
+}
+
+.button_rrss {
+    border: 1px solid #CE7240;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.ArtistOne__projects {
+    border-top: solid grey 1px;
+    padding-top: 1em;
+    display: flex;
+    flex-direction: column;
     gap: 1em;
     padding: 1em;
 }
