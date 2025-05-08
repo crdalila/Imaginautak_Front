@@ -1,0 +1,30 @@
+.ArtistOne__follows {
+    display: flex;
+    flex-direction: row;
+    padding-top: 1em;
+    justify-content: space-evenly;
+    font-family: var(--main-font);
+    font-weight: bold;
+}
+
+.ArtistOne__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ArtistOne__data {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+}
+
+
+.ArtistOne__links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em;
+}
