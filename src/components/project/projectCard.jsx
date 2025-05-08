@@ -112,7 +112,7 @@ function ProjectCard({ project }) {
                 )}
                 {project.categories?.map(category => (
                     /* const normalizedKey = category.category_name.toLowerCase().replace(/ /g, "_"); */
-                    <button className="project__card-category">
+                    <button className="project__card-category" key={category.category_id}>
                         <Link to={`/categorias/${category.category_id}`} key={category.category_id}>
                             {category.category_name}
                         </Link>

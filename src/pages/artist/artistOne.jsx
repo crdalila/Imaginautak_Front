@@ -28,7 +28,7 @@ function ArtistOne() {
                 <h1 className="ArtistOne__header-title">{artist.artistic_name}</h1>
             </section>
 
-            <section className="ArtistOne__follows">
+            <section className="One__follows">
                 <p>Proyectos: {projectNumber}</p>
                 <p>Seguidores: {artist.followers_count}</p>
             </section>

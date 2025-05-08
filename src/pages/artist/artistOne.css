@@ -11,6 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1em;
 }
 
 .One__data {
@@ -24,7 +25,8 @@
     font-family: var(--main-font);
     font-size: 1em;
     text-align: justify;
-    padding-inline: 1em;
+    padding-inline: 1.2em;
+    margin-bottom: 1em;
 }
 
 .ArtistOne__links h2, .ArtistOne__projects-title {

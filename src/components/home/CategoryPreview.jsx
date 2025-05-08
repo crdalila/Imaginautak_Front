@@ -35,7 +35,7 @@ function CategoryPreview({ initialData = null }) {
             <section className="preview__category-cards preview__carousel">
                 {categories.length === 0 && <p>No hay categorías disponibles</p>}
                     {categories.map (category => (
-                        <div className="preview__category-card preview__carousel-item">
+                        <div className="preview__category-card preview__carousel-item" key={category.category_id}>
                             <CategorySmallCard category={category}/>
                         </div>
                     ))}

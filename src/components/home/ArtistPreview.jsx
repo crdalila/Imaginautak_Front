@@ -33,7 +33,7 @@ function ArtistPreview({ initialData = null }) {
             <section className="preview__artist-cards preview__carousel">
                 {artists.length == 0 && <p>No hay artistas disponibles</p>}
                     {artists.map (artist => (
-                        <div className="preview__artist-card preview__carousel-item">
+                        <div className="preview__artist-card preview__carousel-item" key={artist.artist_id}>
                             <ArtistSmallCard artist={artist} />
                         </div> 
                     ))}

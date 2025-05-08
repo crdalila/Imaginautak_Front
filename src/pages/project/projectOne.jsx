@@ -3,7 +3,6 @@ import { useLoaderData } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import ButtonBack from '../../components/button/buttonBack';
-import CategoryCard from '../../components/category/CategoryCard';
 import './projectOne.css';
 
 // PÁGINA DE UN PROYECTO
@@ -24,49 +23,64 @@ function ProjectOne() {
 			</section>
 
 			<section className="ProjectOne__header getAll__header">
-                <h1 className="ProjectOne__header-title">{project.title}</h1>
-            </section>
-
-			<section className='projectOne__artists'>
-				<p>Un proyecto de: </p>
-				{project.artists.map(artist => (
-						<Link to={`/artistas/${artist.artist_id}`} key={artist.artist_id}>
-							{artist.artistic_name}
-						</Link>
-					))}
+				<h1 className="ProjectOne__header-title">{project.title}</h1>
 			</section>
 
-			<section className="One__follows projectOne__follows">
-                <p>Fans: {project.favorites_count}</p>
-            </section>
+			<section className='ProjectOne__artists'>
+				<p>Un proyecto de: </p>
+				{project.artists.map(artist => (
+					<Link to={`/artistas/${artist.artist_id}`} key={artist.artist_id}>
+						{artist.artistic_name}
+					</Link>
+				))}
+			</section>
+
+			<section className="One__follows ProjectOne__follows">
+				<p>Fans: {project.favorites_count}</p>
+			</section>
+
+			<section className="ProjectOne__imgs ArtistOne_imgs">
+				<section className="ProjectOne__img">
+					<img src={project.project_imgs} alt={project.title} />
+				</section>
+				<section className="ProjectOne__video">
+					{project.project_video && (
+						<iframe
+							src={`https://www.youtube.com/embed/${new URL(project.project_video).searchParams.get("v")}`}
+							title="YouTube video player"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowFullScreen
+						></iframe>
+					)}
+				</section>
+			</section>
 
 			<section className="ProjectOne__data One_data">
-                <section className={"ArtistOne__img"}>
-                    <img src={artist.img} alt={artist.artistic_name} />
-                </section>
-                <p className="One_data ArtistOne__data-bio">{artist.bio}</p>
-            </section>
+				<p className="ProjectOne__data-title">{project.title}</p>
+				<p className="ProjectOne__description">Descripción: {project.description}</p>
+				{project.trigger_warnings && (
+					<p className="ProjectOne__warnings">Contenido sensible: {project.trigger_warnings}</p>
+				)
+				}
+			</section>
 
-
-
-			<p className="projectOne__description">{project.description}</p>
-
-			<div className="projectOne__img">
-				<img src={project.project_imgs} alt={project.title} />
-			</div>
-
-			<section className="projectOne__categories">
+			<section className="ProjectOne__categories">
 				{project.categories.length === 0 ? (
 					<p>No hay categorías disponibles para este proyecto</p>
 				) : (
-					project.categories.map(category => (
-						<div className="projectOne__categories-oneCategory" key={category.category_id}>
-							<CategoryCard category={category} />
-						</div>
-					))
+					<>
+						<p>Categorías: </p>
+						{project.categories.map(category => (
+							<button className="project__card-category" key={category.category_id}>
+								<Link to={`/categorias/${category.category_id}`}>
+									{category.category_name}
+								</Link>
+							</button>
+						))}
+					</>
 				)}
 			</section>
-		</article>
+		</article >
 	);
 }
 

@@ -1,0 +1,65 @@
+.ProjectOne__artists {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    padding-inline: 5em;
+}
+
+.ProjectOne__artists p {
+    font-family: var(--main-font);
+    text-align: left;
+}
+
+.ProjectOne__artists a {
+    text-decoration: none;
+    font-family: var(--second-font);
+    text-align: right;
+    font-size: 1.1em;
+    margin-right: 1em;
+}   
+
+.ProjectOne__imgs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+}
+
+.ProjectOne__imgs img {
+    display: flex;
+    width: 340px;
+}
+
+.ProjectOne__video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ProjectOne__data {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+    padding-inline: 1.2em;
+}
+
+.ProjectOne__data-title {
+    font-family: var(--second-font);
+    font-size: 1.1em;
+}
+
+.ProjectOne__description, .ProjectOne__warnings, .ProjectOne__categories{
+    font-family: var(--main-font);
+}
+
+.ProjectOne__categories {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em;
+    padding-inline: 1.2em;
+}

@@ -32,7 +32,7 @@ function ProjectPreview({ preview = false, initialData = null }) {
             <section className="preview__project-cards preview__carousel">
                 {projects.length == 0 && <p>No hay proyectos disponibles</p>}
                     {projects.map (project => (
-                        <div className="preview__project-card preview__carousel-item">
+                        <div className="preview__project-card preview__carousel-item" key={project.project_id}>
                             <ProjectSmallCard project={project} />
                         </div>
                     ))}
