@@ -50,7 +50,7 @@ function ProjectList({ initialData = null }) {
             <section className="projects__cards">
                 {projects.length == 0 && <p>No hay proyectos disponibles</p>}
                     {projects.map(project => (
-                        <div className="projects__cards-card">
+                        <div className="projects__cards-card" key={project.project_id}>
                             <ProjectCard project={project} />
                         </div>
                     ))}

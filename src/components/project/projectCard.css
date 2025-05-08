@@ -1,53 +1,59 @@
-.project {
-    border: #CE7240 solid 3px;
-    border-radius: 5px;
-    margin: 10px
+.project__card {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
 .project__text {
-    padding-left: 20px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    width: 70%;;
+    gap: 0.5em;
+}
+
+.project__text-title-complete {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
 }
 
 .project__text-title {
-    font-size: 24px;
+    font-family: var(--second-font);
+    font-size: 1.5em;
+}
+
+.project__text-vermas {
+    font-family: var(--main-font);
+    width: 120px;
+    text-align: right;
 }
 
 .project__text-artist {
-    font-size: 16px;
+    font-family: var(--main-font);
+    font-weight: bold;
+    font-size: 1em;
+    padding-right: 1em;
 }
 
-.project__img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30%;
-}
-
-.project img {
-    display: flex;
-    max-height: 50px;
+.project__img img {
+    width: 100%;
 }
 
 .project__description {
-    padding: 10px;
+    font-family: var(--main-font);
+    font-size: 1em;
 }
 
-.project__links {
+.project__card-categories {
+    font-family: var(--main-font);
+    font-size: 1em;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
 }
 
-.project__links-categories {
-    padding: 10px
-}
+.project__card-category {
 
-.project a {
-    display: flex;
-    justify-content: flex-end;
-    padding: 0 10px 10px 0px;
-    font-size: 12px;
 }

@@ -71,56 +71,47 @@ const categoryNameChange = {
 
 
 // COMPONENTE DE PROYECTO
-function ProjectCard({ project, preview = false }) {
-
-    //especifica los datos que necesitamos de project
-    const info = {
-        project_id: project.project_id || "Proyecto sin id",
-        title: project.title || "Proyecto sin título",
-        description: project.description || "Sin descripción",
-        project_imgs: project.project_imgs || [],
-        categories: project.categories || [],
-        artists: project.artists || []
-    };
-
+function ProjectCard({ project }) {
+    
     //renderizado:
     return (
-        <article className="project">
+        <article className="card project__card">
+
             <section className="project__text">
-                <h2 className="project__text-title">{info.title}</h2>
-                {info.artists.length > 0 ? (
-                    info.artists.map(artist => (
-                        <Link to ={`/artistas/${artist.artist_id}`} key={artist.artist_id} className="project__text-artist">
+                <section className="project__text-title-complete">
+                    <h2 className="project__text-title">{project.title}</h2>
+                    <Link to={`/proyectos/${project.project_id}`} className="project__text-vermas">
+                        Ver más
+                    </Link>
+                </section>
+
+                <section className="project__text-artists">
+                    {project.artists?.map(artist => (
+                        <Link to={`/artistas/${artist.artist_id}`} key={artist.artist_id} className="project__text-artist">
                             {artist.artistic_name}
                         </Link>
-
-                    ))
-                ) : (
-                    <p className="project__text-artist">Sin artistas asociados</p>
-                )}
+                    ))}
+                </section>
             </section>
 
             <section className="project__img">
-                {(info.project_imgs === 1) ? <img src={info.project_imgs} alt={info.title} /> : <img src={info.project_imgs[0]} alt={info.title} />}
+                <img src={project.project_imgs} alt={project.title} />
             </section>
 
-            {info.description && <p className="project__description">{info.description}</p>}
+            <p className="project__description">Descripción: {project.description}</p>
 
-            <section className={`${preview ? "project__preview__links" : "project__links"}`}>
-                <section className="project__links-categories">
-                {info.categories.map(category => {
-                    const normalizedKey = category.category_name.toLowerCase().replace(/ /g, "_");
-                    return (
-                        <button onClick={() => onRouteChange("#")} key={category.category_id}>
-                            {categoryNameChange[normalizedKey]?.category_name || category.category_name}
-                        </button>
-                    );
-                })}
-                </section>
-                <Link to={`/proyectos/${info.project_id}`} className={`${preview ? "project__preview__vermas" : "project__vermas"}`}>
-                    Ver el proyecto completo
-               </Link>
+            <section className="project__card-categories">
+                <p>Categoría(s):</p>
+                {project.categories?.map(category => (
+                    /* const normalizedKey = category.category_name.toLowerCase().replace(/ /g, "_"); */
+                    <button className="project__card-category">
+                        <Link to={`/categorias/${category.category_id}`} key={category.category_id}>
+                            {category.category_name}
+                        </Link>
+                    </button>
+                ))}
             </section>
+
         </article>
     );
 }
