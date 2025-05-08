@@ -107,7 +107,9 @@ function ProjectCard({ project }) {
             </section>
             
             <section className="project__card-categories">
-                <p>Categoría(s):</p>
+                {project.categories && (
+                    <p>Categoría(s):</p>
+                )}
                 {project.categories?.map(category => (
                     /* const normalizedKey = category.category_name.toLowerCase().replace(/ /g, "_"); */
                     <button className="project__card-category">

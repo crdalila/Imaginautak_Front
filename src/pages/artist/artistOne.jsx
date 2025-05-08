@@ -24,7 +24,7 @@ function ArtistOne() {
                 <ButtonBack />
             </section>
 
-            <section className="One__header getAll__header">
+            <section className="ArtistOne__header getAll__header">
                 <h1 className="ArtistOne__header-title">{artist.artistic_name}</h1>
             </section>
 

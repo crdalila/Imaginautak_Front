@@ -1,4 +1,4 @@
-.ArtistOne__follows {
+.One__follows {
     display: flex;
     flex-direction: row;
     padding-top: 1em;
@@ -13,7 +13,7 @@
     align-items: center;
 }
 
-.ArtistOne__data {
+.One__data {
     display: flex;
     flex-direction: column;
     gap: 1em;
