@@ -1,52 +1,35 @@
-.artist {
-    border: #CE7240 solid 3px;
-    border-radius: 5px;
-    margin: 10px
+
+.artist__card {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
 }
 
-.artist__img {
+.artist__card-img {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30%;
 }
 
-.artist img {
+.artist__card img {
     display: flex;
-    max-height: 50px;
+    height: 150px
 }
 
-.artist__title {
-    font-size: 24px;
-}
-
-.artist__bio {
-    font-size: 16px;
-    font-style: italic;
-}
-
-.artist a {
-    display: flex;
-    justify-content: flex-end;
-    padding: 0 10px 10px 0px;
-    font-size: 12px;
-}
-
-
-/* artist__PREVIEW para el CSS del home */
-
-.artist__preview {
-    border: var(--accent-color) solid 1px;
-    border-radius: 5px;
-    margin: 10px;
-    padding: 10px;
+.artist__card-text {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
 }
 
-.artist__preview__img {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
+.artist__card-title {
+    font-family: var(--second-font);
+    font-size: 1.5em;
+}
+
+.artist__card-bio {
+    font-size: 1em;
+    font-family: var(--main-font);
 }

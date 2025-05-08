@@ -6,88 +6,109 @@ import './CategoryCard.css';
 const categoryExtraInfo = {
     musica: {
         category_name: "Música",
-        category_description: "Bandas, grupos, cantantes en solitario, personas que componen, que tocan instrumentos, etc.",
-        category_image: "/images/category_imgs/music-solid.svg" },
+        category_description: "Composición, interpretación y expresión sonora en todas sus formas.",
+        category_image: "/images/category_imgs/music-solid.svg"
+    },
     teatro: {
         category_name: "Teatro",
-        category_description: "feñsafjñelajfeañfea.afa jsiñf asjifñoa fjo jaj añjf a",
-        category_image: "/images/category_imgs/masks-theater-solid.svg" },
+        category_description: "El arte de contar historias en escena a través de la actuación.",
+        category_image: "/images/category_imgs/masks-theater-solid.svg"
+    },
     danza: {
         category_name: "Danza",
-        category_description: "dafdafeñ dklñsjf e eieieieiieeieeiieieieieieeiie",
-        category_image: "/images/category_imgs/shoe-prints-solid.svg" },
+        category_description: "Movimiento, ritmo y emoción expresados a través del cuerpo.",
+        category_image: "/images/category_imgs/shoe-prints-solid.svg"
+    },
     performance: {
         category_name: "Performance",
-        category_description: "Artes performáticas",
-        category_image: "/images/category_imgs/mask-solid.svg" },
+        category_description: "Acciones artísticas en vivo que cruzan disciplinas y provocan reflexión.",
+        category_image: "/images/category_imgs/mask-solid.svg"
+    },
     comedia: {
         category_name: "Comedia",
-        category_description: "Monólogos, comedias, improvisaciones, etc, cualquier disciplina que haga conectar con el público a través del humor",
-        category_image: "/images/category_imgs/face-grin-tears-solid.svg" },
+        category_description: "El arte de hacer reír y pensar a través del humor escénico.",
+        category_image: "/images/category_imgs/face-grin-tears-solid.svg"
+    },
     ilustracion: {
         category_name: "Ilustración",
-        category_description: "Dibujos, ilustraciones, digitales o no, etc.",
-        category_image: "/images/category_imgs/print-solid.svg" },
+        category_description: "Imágenes que comunican ideas, emociones o historias, en papel o digital.",
+        category_image: "/images/category_imgs/print-solid.svg"
+    },
     fotografia: {
         category_name: "Fotografía",
-        category_description: "La perspectiva del mundo que nos rodea a través de la fotografía estática",
-        category_image: "/images/category_imgs/camera.svg" },
+        category_description: "Capturar el mundo desde una mirada única y personal.",
+        category_image: "/images/category_imgs/camera.svg"
+    },
     dibujo: {
         category_name: "Dibujo",
-        category_description: "Dibujos sobre lienzo o cualquier papel, distintas técnicas de pintura",
-        category_image: "/images/category_imgs/palette-solid.svg"},
+        category_description: "Trazos que dan forma a ideas, emociones y mundos imaginarios.",
+        category_image: "/images/category_imgs/palette-solid.svg"
+    },
     escultura: {
         category_name: "Escultura",
-        category_description: "El poder de las manos para crear arte en tres dimensiones",
-        category_image: "/images/category_imgs/building.svg" },
+        category_description: "Arte tridimensional que transforma materia en expresión.",
+        category_image: "/images/category_imgs/building.svg"
+    },
     diseño_grafico: {
         category_name: "Diseño gráfico",
-        category_description: "Arte gráfico aplicado a la comunicación visual",
-        category_image: "/images/category_imgs/pen-ruler-solid.svg" },
+        category_description: "Comunicación visual con intención y creatividad.",
+        category_image: "/images/category_imgs/pen-ruler-solid.svg"
+    },
     poesia: {
         category_name: "Poesía",
-        category_description: "La belleza de las palabras para expresar emociones y pensamientos",
-        category_image: "/images/category_imgs/scroll-solid.svg" },
+        category_description: "Palabras que condensan emoción, ritmo y belleza.",
+        category_image: "/images/category_imgs/scroll-solid.svg"
+    },
     literatura: {
         category_name: "Literatura",
-        category_description: "El arte de escribir blablabla escribes esto escribes aquello este es tu lugar, déjate embriagar por las palabras",
-        category_image: "/images/category_imgs/pen-nib-solid.svg" },
+        category_description: "El arte de narrar, imaginar y emocionar a través de la escritura.",
+        category_image: "/images/category_imgs/pen-nib-solid.svg"
+    },
     cine: {
         category_name: "Cine",
-        category_description: "Imágenes en movimiento, desde ficción a documental, en todos sus formatos",
-        category_image: "/images/category_imgs/clapperboard.svg" },
+        category_description: "Narrativas visuales en movimiento, desde lo íntimo hasta lo épico.",
+        category_image: "/images/category_imgs/clapperboard.svg"
+    },
     animacion: {
         category_name: "Animación",
-        category_description: "Stop motion, animación digital, animación tradicional,",
-        category_image: "/images/category_imgs/arrow.svg" },
+        category_description: "Dibujos y objetos que cobran vida en la pantalla.",
+        category_image: "/images/category_imgs/arrow.svg"
+    },
     video_arte: {
         category_name: "Vídeo arte",
-        category_description: "Cuando el vídeo no solo cuenta una historia, sino que crea una realidad",
-        category_image: "/images/category_imgs/video-solid.svg" },
+        category_description: "Exploración visual experimental con el lenguaje audiovisual.",
+        category_image: "/images/category_imgs/video-solid.svg"
+    },
     ceramica: {
         category_name: "Cerámica",
-        category_description: "dadfjsal  djlsañe jae-j jelejekljflsdñfjf e",
-        category_image: "/images/category_imgs/mug-saucer-solid.svg" },
+        category_description: "Arte y técnica de modelar la tierra para crear belleza y función.",
+        category_image: "/images/category_imgs/mug-saucer-solid.svg"
+    },
     joyeria: {
         category_name: "Joyería",
-        category_description: "Joyas hechas a mano con distintos materiales, desde los más comunes a los más exoticos",
-        category_image: "/images/category_imgs/ring-solid.svg" },
+        category_description: "Creación de piezas únicas que combinan arte y artesanía.",
+        category_image: "/images/category_imgs/ring-solid.svg"
+    },
     textil: {
         category_name: "Textil",
-        category_description: "Diseño de moda, fabricación de prendas propias, crochet, distintas técnicas de tejido",
-        category_image: "/images/category_imgs/vest-patches-solid.svg" },
+        category_description: "Diseño, tejido y confección como forma de expresión artística.",
+        category_image: "/images/category_imgs/vest-patches-solid.svg"
+    },
     artesania: {
         category_name: "Artesanía",
-        category_description: "Cualquier objeto hecho a mano, desde el mas simple hasta el mas complejo",
-        category_image: "/images/category_imgs/stapler-solid.svg" },
+        category_description: "Creaciones hechas a mano que mezclan tradición y creatividad.",
+        category_image: "/images/category_imgs/stapler-solid.svg"
+    },
     activismo: {
         category_name: "Activismo",
-        category_description: "Capacidad de expresar mediante un discurso que se convierte en una acción",
-        category_image: "/images/category_imgs/microphone-solid.svg" },
+        category_description: "Expresión artística con impacto social y político.",
+        category_image: "/images/category_imgs/microphone-solid.svg"
+    },
     otra: {
         category_name: "Otros",
-        category_description: "Para todas aquellas disciplinas que no encajan en una etiqueta específica. Al fin y al cabo, el arte es arte en todas sus formas.",
-        category_image: "/images/category_imgs/handheart.svg" },
+        category_description: "Disciplinas híbridas o inclasificables, porque el arte no tiene límites.",
+        category_image: "/images/category_imgs/handheart.svg"
+    },
 };
 
 
@@ -107,14 +128,16 @@ function CategoryCard({ category }) {
     return (
         <Link to ={`/categorias/${info.id}`}>
             <article className="card category__card">
+                
+                <section className="category__img">
+                    <img src={info.image} alt={info.name} />
+                </section>
+
                 <section className="category__text">
                     <h2 className="category__text-title">{info.name}</h2>
                     <p className="category__text-description">{info.description}</p>
                 </section>
                 
-                <section className="category__img">
-                    <img src={info.image} alt={info.name} />
-                </section>
             </article>
         </Link>
     );

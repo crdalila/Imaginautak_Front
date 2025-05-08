@@ -3,26 +3,23 @@ import { Link } from 'react-router-dom';
 import './artistCard.css';
 
 // COMPONENTE DE ARTISTA
-function ArtistCard({ artist, preview = false }) {
-
-    const info = {
-        artist_id: artist.artist_id || "Artista sin id",
-        artistic_name: artist.artistic_name || "Artista sin nombre",
-        img: artist.img || "/images/default.jpg",
-        bio: artist.bio || "Sin biografía",
-    };
+function ArtistCard({ artist }) {
 
     return (
-        <article className="artist">
-            <section className="artist__img">
-                <img src={info.img} alt={info.artistic_name} />
-            </section>
-            <h2 className="artist__title">{info.artistic_name}</h2>
-            <p className="artist__bio">{info.bio}</p>
-            <Link to ={`/artistas/${artist.artist_id}`} className="artist__vermas">
-                Ir al perfil de {info.artistic_name}
-            </Link>
-        </article>
+        <Link to ={`/artistas/${artist.artist_id}`}>
+            <article className="card artist__card">
+
+                <section className="artist__card-img">
+                    <img src={artist.img} alt={artist.artistic_name} />
+                </section>
+                
+                <section className="artist__card-text">
+                    <h2 className="artist__card-title">{artist.artistic_name}</h2>
+                    <p className="artist__card-bio">{artist.bio}</p>
+                </section> 
+
+            </article>
+        </Link>
     );
 }
 

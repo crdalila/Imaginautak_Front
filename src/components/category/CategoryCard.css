@@ -1,19 +1,38 @@
-/* CATEGORY para el CSS del getAll */
+/* COMPARTIDO: card genérico */
 
-.category {
-
+.card {
+    display: flex;
+    border: solid #CE7240 1px;
+    border-radius: 5px;
+    margin-bottom: 1em;
+    margin-inline: 1em;
+    padding: 1em;
 }
 
-.category__main {
+/* solo de category: */
+
+.category__card {
+    height: 150px;
+}
+
+.category__img {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+}
+
+.category img {
+    display: flex;
+    max-height: 50px;
 }
 
 .category__text {
     padding-left: 20px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;
+    padding-left: 2em;
     width: 100%;;
 }
 
@@ -25,47 +44,4 @@
 .category__text-description {
     font-family: var(--main-font);
     font-style: italic;
-}
-
-.category__img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30%;
-}
-
-.category img {
-    display: flex;
-    max-height: 50px;
-}
-
-.category__vermas {
-    display: flex;
-    justify-content: flex-end;
-    padding: 0 10px 10px 0px;
-    font-size: 12px;
-}
-
-
-
-/* CATEGORY__PREVIEW para el CSS del home */
-
-.category__preview {
-    border: var(--accent-color) solid 1px;
-    border-radius: 5px;
-    margin: 10px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.category__preview__img {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-}
-
-.category__preview__text-description, .category__preview__vermas {
-    display: none;
 }

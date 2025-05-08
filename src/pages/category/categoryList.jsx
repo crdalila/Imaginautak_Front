@@ -53,9 +53,7 @@ function CategoryList({ initialData = null }) {
                 
                 {categories.length === 0 && <p>No hay categorías disponibles</p>}
                     {categories.map(category => (
-                        <div className="category__card">
-                            <CategoryCard category={category} />
-                        </div>
+                        <CategoryCard category={category} />
                     ))}
             </section>
 
