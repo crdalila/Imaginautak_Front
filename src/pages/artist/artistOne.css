@@ -1,3 +1,5 @@
+/* COMPARTIDO: follows, botón rrss y data para los perfiles */
+
 .One__follows {
     display: flex;
     flex-direction: row;
@@ -7,17 +9,30 @@
     font-weight: bold;
 }
 
-.ArtistOne__img {
+.button_rrss {
+    border: 1px solid #CE7240;
+    border-radius: 10px;
+    padding: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1em;
+    gap: 5px;
 }
 
 .One__data {
     display: flex;
     flex-direction: column;
     gap: 1em;
+    padding: 1em;
+}
+
+
+/* ARTIST ONE: perfil de artista */
+
+.ArtistOne__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 1em;
 }
 
@@ -52,15 +67,7 @@
     gap: 1em;
 }
 
-.button_rrss {
-    border: 1px solid #CE7240;
-    border-radius: 10px;
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-}
+
 
 .ArtistOne__projects {
     border-top: solid grey 1px;

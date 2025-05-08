@@ -8,7 +8,8 @@ import ArtistOne from './pages/artist/artistOne';
 import ProjectList from './pages/project/projectList';
 import ProjectOne from './pages/project/projectOne';
 import HomePage from './pages/home/Home';
-import Auth from './pages/auth/Auth';
+import Login from './pages/auth/Login';
+import Register from './pages/auth/Register';
 
 import { getAllCategories, getCategoryById } from './utils/category';
 import { getAllArtist, getArtistById } from './utils/artist';
@@ -63,7 +64,11 @@ const router  = createBrowserRouter([
             },
             {
                 path: "/login",
-                element: <Auth />,
+                element: <Login />,
+            },
+            {
+                path: "/register",
+                element: <Register />,
             }
         ]
     },

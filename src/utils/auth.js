@@ -9,6 +9,18 @@ async function login (email, password) {
     return result;
 }
 
+async function register (username, email, password, role) {
+    const data = {
+        username,
+        email,
+        password,
+        role
+    }
+    const result = await fetchData("/registro", "POST", data);
+    return result;
+}
+
 export {
-    login
+    login,
+    register
 }

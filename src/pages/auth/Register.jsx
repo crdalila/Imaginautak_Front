@@ -1,9 +1,11 @@
 import { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../context/AuthContext";
+import ButtonBack from "../../components/button/buttonBack";
 
 // LOGIN Y REGISTRO
-function Auth({ }) {
+function Register({ }) {
     const [isRegister, setIsRegister] = useState(false);
     const [error, setError] = useState(null);
     const [userData, setUserData] = useState({
@@ -33,19 +35,30 @@ function Auth({ }) {
         setError(result);
     }
     return (
-        <section className="auth__login">
-            <h1>Inicia sesión</h1>
-            <p className="error">{error}</p>
-            <form className="auth__login-form" onSubmit={handleSubmit}>
+        <section className="login getAll">
+
+            <section className="button_back">
+                <ButtonBack />
+            </section>
+
+            <section className="getAll__header">
+                <h1>Inicia sesión</h1>
+                <p className="error">{error}</p>
+            </section>
+
+            <form className="login__form" onSubmit={handleSubmit}>
                 <label htmlFor="email">Correo electrónico</label>
                 <input type="email" name="email" id="email" value={userData.email} onChange={handleUserEmail} />
                 <label htmlFor="password">Contraseña</label>
                 <input type="password" name="password" id="password" value={userData.password} onChange={handleUserPassword} />
                 <button>Acceder</button>
             </form>
-            <p>¿No tienes una cuenta? </p><a href="#">Regístrate</a>
+            <section className="login__register">
+                <p>¿No tienes una cuenta? </p>
+                <Link to="/registro">Regístrate</Link>
+            </section>
         </section>
     )
 }
 
-export default Auth;
+export default Register;
