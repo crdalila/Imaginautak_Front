@@ -4,18 +4,19 @@ import { useNavigate } from "react-router-dom";
 import { saveToken, removeToken, saveToLocalStorage, getFromLocalStorage } from "../utils/localStorage";
 import { login, register, logout } from "../utils/auth";
 
+const BASE_URL = "http://localhost:3000";
 
 const AuthContext = createContext({
     userData: null,
-    onLogin: async () => {}, //para que lo lea como async
-    onLogout: () => {},
-    onRegister: async () => {}
+    onLogin: async () => { }, //para que lo lea como async
+    onLogout: () => { },
+    onRegister: async () => { }
 });
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
     const [userData, setUserData] = useState(null);
     const navigate = useNavigate();
-    
+
     //cargar los datos del usuario al inicio si existe
     useEffect(() => {
         const savedUserData = getFromLocalStorage("userData");
@@ -23,7 +24,7 @@ const AuthProvider = ({children}) => {
             setUserData(savedUserData);
         }
     }, []);
-    
+
 
     // Registro
     const handleRegister = async (username, email, password, role) => {
@@ -39,7 +40,7 @@ const AuthProvider = ({children}) => {
                     setUserData(result.user);
                     saveToLocalStorage("userData", result.user);
                 }
-                
+
                 navigate("/");
                 return null;
             }
@@ -60,17 +61,38 @@ const AuthProvider = ({children}) => {
                 if (result.token) { //si existe token, lo guarda
                     saveToken(result.token);
                 }
-                if (result.user) {
-                    setUserData(result.user);
-                    saveToLocalStorage("userData", result.user);
+                let finalUserData = result.user;
+
+                //verificamos si el usuario tiene perfil de artista
+                try {
+                    const response = await fetch(BASE_URL + `/artistas/${finalUserData.user_id}`, {
+                        headers: {
+                            "Authorization": `Bearer ${result.token}`
+                        }
+                    });
+                    if (response.ok) {
+                        // El usuario tiene perfil de artista
+                        finalUserData = { ...finalUserData, role: "artist" };
+                    } else {
+                        // El usuario no tiene perfil de artista (404 u otro error)
+                        finalUserData = { ...finalUserData, role: "user" };
+                    }
+                } catch (err) {
+                    console.error("Error comprobando perfil de artista:", err);
+                    finalUserData = { ...finalUserData, role: "user" };
                 }
-                
+
+                // Guardamos los datos de usuario (con rol extendido)
+                setUserData(finalUserData);
+                saveToLocalStorage("userData", finalUserData);
+
                 navigate("/");
                 return null;
             }
-        } catch (error) {
+        }
+        catch (error) {
             console.error("Error en el login:", error);
-            return "Error al procesar el inicio de sesión";
+            return "Error al procesar el login";
         }
     }
 
@@ -91,9 +113,9 @@ const AuthProvider = ({children}) => {
 
     return (
         <AuthContext.Provider value={{
-            userData: userData, 
-            onLogin: handleLogin, 
-            onLogout: handleLogout, 
+            userData: userData,
+            onLogin: handleLogin,
+            onLogout: handleLogout,
             onRegister: handleRegister
         }}>
             {children}
