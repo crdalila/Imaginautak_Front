@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import ButtonBack from '../../components/button/buttonBack';
+import { getProjectImgs } from '../../utils/project';
 import './projectOne.css';
 
 // PÁGINA DE UN PROYECTO
@@ -40,9 +41,11 @@ function ProjectOne() {
 			</section>
 
 			<section className="ProjectOne__imgs ArtistOne_imgs">
-				<section className="ProjectOne__img">
-					<img src={project.project_imgs} alt={project.title} />
-				</section>
+			<section className={"ProjectOne__img"}>
+                    {getProjectImgs(project).map((imgUrl, index) => (
+                        <img key={index} src={imgUrl} alt={`${project.title} ${index + 1}`} />
+                    ))}
+                </section>
 				<section className="ProjectOne__video">
 					{project.project_video && (
 						<iframe

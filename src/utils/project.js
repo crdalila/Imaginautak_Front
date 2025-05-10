@@ -15,9 +15,18 @@ async function getProjectById(project_id){
 }
 
 // GET PROJECT IMAGES
-function getProjectImgs(project){
-    const url = BASE_URL + `/images/` + project.project_imgs;
-    return url;
+// GET ARTIST IMAGES
+function getProjectImgs(project) {
+    const imgField = project.project_imgs;
+
+    // convertir el string de las fotos en array
+    const imgArray = typeof imgField === 'string'
+        ? imgField.split(',').map(filename => filename.trim()) // quitar espacios del string que recibimos de back
+        : Array.isArray(imgField)
+            ? imgField
+            : [];
+
+    return imgArray.map(filename => `${BASE_URL}/${filename.replace(/^public\//, '')}`);
 }
 
 export {

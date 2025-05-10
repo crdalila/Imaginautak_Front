@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import './projectCard.css';
+import { getProjectImgs } from '../../utils/project';
 
 // CAMBIO EN LOS NOMBRES DE CATEGORÍA
 const categoryNameChange = {
@@ -72,7 +73,9 @@ const categoryNameChange = {
 
 // COMPONENTE DE PROYECTO
 function ProjectCard({ project }) {
-    
+    const images = getProjectImgs(project);
+    const firstImage = images.length > 0 ? images[0] : null;
+
     //renderizado:
     return (
         <article className="card project__card">
@@ -94,11 +97,11 @@ function ProjectCard({ project }) {
                 </section>
             </section>
 
-            <section className="project__img">
-                {project.project_imgs && (
-                    <img src={project.project_imgs} alt={project.title} />
+            {firstImage && (
+                    <section className="artist__card-img project__card-img">
+                        <img src={firstImage} alt={project.title} />
+                    </section>
                 )}
-            </section>
 
             <section className="project__description">
                 {project.description && (

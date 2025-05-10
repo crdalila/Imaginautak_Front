@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
 
+import { getProjectImgs } from '../../utils/project';
 import './ProjectSmallCard.css';
 
 function ProjectSmallCard({ project }) {
+    const images = getProjectImgs(project);
+    const firstImage = images.length > 0 ? images[0] : null;
 
     return (
         <Link to={`/proyectos/${project.project_id}`}>
@@ -18,11 +21,11 @@ function ProjectSmallCard({ project }) {
                         <p className="previewCard__project-text-artist">Sin artistas asociados</p>
                     )}
                 </section>
-
-                <section className="previewCard__img previewCard__project-img">
-                    <img src={project.project_imgs} alt={project.title} />
-                </section>
-
+                {firstImage && (
+                    <section className="previewCard__artist-img previewCard__project-img">
+                        <img src={firstImage} alt={project.title} />
+                    </section>
+                )}
             </article>
         </Link>
     );
