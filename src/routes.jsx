@@ -3,17 +3,22 @@ import Root from './pages/root/Root';
 
 import CategoryList from './pages/category/categoryList';
 import CategoryOne from './pages/category/categoryOne';
+
 import ArtistList from './pages/artist/artistList';
 import ArtistOne from './pages/artist/artistOne';
+
 import ProjectList from './pages/project/projectList';
 import ProjectOne from './pages/project/projectOne';
+import NewProject from './pages/project/newProject';
+
 import HomePage from './pages/home/Home';
+
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 
 import { getAllCategories, getCategoryById } from './utils/category';
 import { getAllArtist, getArtistById } from './utils/artist';
-import { getAllProject, getProjectById } from './utils/project';
+import { createProject, getAllProject, getProjectById } from './utils/project';
 
 const router  = createBrowserRouter([
     {
@@ -61,6 +66,11 @@ const router  = createBrowserRouter([
                 path: "/proyectos/:id",
                 element: <ProjectOne />,
                 loader: async ({params}) => getProjectById(params.id)
+            },
+            {
+                path: "/proyectos/crear",
+                element: <NewProject />,
+                loader: getAllCategories
             },
             {
                 path: "/login",
