@@ -12,7 +12,7 @@ function ArtistSmallCard({ artist }) {
         <Link to ={`/artistas/${artist.artist_id}`}>
             <article className="previewCard previewCard__artist">
             {firstImage && (
-                    <section className="artist__card-img">
+                    <section className="previewCard__artist-img">
                         <img src={firstImage} alt={artist.artistic_name} />
                     </section>
                 )}

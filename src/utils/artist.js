@@ -26,7 +26,7 @@ function getArtistImgs(artist) {
 
     // convertir el string de las fotos en array
     const imgArray = typeof imgField === 'string'
-        ? imgField.split(',').map(filename => filename.trim())
+        ? imgField.split(',').map(filename => filename.trim()) // quitar espacios del string que recibimos de back
         : Array.isArray(imgField)
             ? imgField
             : [];
