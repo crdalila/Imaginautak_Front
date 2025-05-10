@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useLoaderData } from "react-router-dom";
 
 import { createProject } from "../../utils/project";
+import ButtonBack from "../../components/button/buttonBack";
 import "./newProject.css";
 
 // Opciones de trigger_warnings
@@ -133,12 +134,20 @@ function NewProject() {
 	};
 
 	return (
-		<div className="create-project">
-			<h1>Crear nuevo proyecto</h1>
+		<div className="newProject getAll">
+
+			<section className="button_back">
+				<ButtonBack />
+			</section>
+
+			<section className="newProject__header getAll__header">
+				<h1 className="ProjectOne__header-title">Comparte tu arte</h1>
+				<h2>Crea un nuevo proyecto</h2>
+			</section>
 
 			{error && <div className="error-message">{error}</div>}
 
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit} className="newProject__form getAll__form">
 				<div className="form-group">
 					<label htmlFor="title">Título</label>
 					<input
@@ -196,7 +205,7 @@ function NewProject() {
 				</div>
 
 				<div className="form-group">
-					<label htmlFor="project_imgs">Imágenes* (puedes subir hasta diez imágenes)</label>
+					<label htmlFor="project_imgs">Imágenes*</label>
 					<input
 						type="file"
 						name="project_imgs"
@@ -206,6 +215,7 @@ function NewProject() {
 						multiple
 						required
 					/>
+					<small>*Puedes subir hasta diez imágenes</small>
 
 					{previewUrls.length > 0 && (
 						<div className="image-previews">
@@ -227,17 +237,6 @@ function NewProject() {
 						value={projectData.project_video}
 						onChange={handleInputChange}
 						placeholder="https://youtube.com/watch?v=..."
-					/>
-				</div>
-
-				<div className="form-group">
-					<label htmlFor="created_at">Fecha de creación</label>
-					<input
-						type="date"
-						name="created_at"
-						id="created_at"
-						value={projectData.created_at}
-						onChange={handleInputChange}
 					/>
 				</div>
 

@@ -1,0 +1,29 @@
+.newProject__header h2 {
+    font-family: var(--second-font);
+    font-size: 0.8em;
+}
+
+.newProject__form {
+    display: flex;
+    flex-direction: column;
+    border: solid #CE7240 1px;
+    border-radius: 5px;
+    margin-bottom: 2em;
+    margin-top: 2em;
+    margin-inline: 1em;
+    gap: 1em;
+    padding: 1em;
+}
+
+.form-group {
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.form-group > label {
+    font-family: var(--second-font);
+}
