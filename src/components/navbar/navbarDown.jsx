@@ -1,16 +1,13 @@
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import RouteContext from '../../context/RouteContext';
 import { AuthContext } from '../../context/AuthContext';
 import './navbarDown.css';
 
 // NAVBAR FIJO EN LA PARTE DE ABAJO DE LA APP
 function NavbarDown ({}){
-    const {route, onRouteChange} = useContext(RouteContext);
-    const {onLogout} = useContext(AuthContext);
+    const {onLogout, userData} = useContext(AuthContext);
 
-    // TODO que depende de si es login o logout salga una cosa u otra
     return (
         <nav>
             <ul className="nav__down">
@@ -25,16 +22,26 @@ function NavbarDown ({}){
                     </button>
                 </li>
 
-                <li className={"nav__down-button"} >
-                    <button>
-                        < NavLink to="/login">
+                {userData ? (
+                     <li className={"nav__down-button"} >
+                        <button onClick={onLogout}>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="#ce7240" height="24px" width="24px">
                             <path fill="#ce7240" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/></svg>
-                        <p>Login</p>
-                    </NavLink>
-                    </button>
-                </li>
+                            <p>Logout</p>
+                        </button>
+                    </li>
 
+                ) : (
+                    <li className={"nav__down-button"} >
+                        < NavLink to="/login">
+                            <button>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="#ce7240" height="24px" width="24px">
+                                <path fill="#ce7240" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/></svg>
+                                <p>Login</p>
+                            </button>
+                        </NavLink>
+                    </li>
+                )}
             </ul>
         </nav>
     )
