@@ -4,6 +4,7 @@ import { useLoaderData } from 'react-router-dom';
 import './artistOne.css';
 import ButtonBack from '../../components/button/buttonBack';
 import ProjectCard from '../../components/project/projectCard';
+import { getArtistImgs } from '../../utils/artist';
 
 // PÁGINA DE UN ARTISTA
 function ArtistOne() {
@@ -35,7 +36,9 @@ function ArtistOne() {
 
             <section className="ArtistOne__data One_data">
                 <section className={"ArtistOne__img"}>
-                    <img src={artist.img} alt={artist.artistic_name} />
+                    {getArtistImgs(artist).map((imgUrl, index) => (
+                        <img key={index} src={imgUrl} alt={`${artist.artistic_name} ${index + 1}`} />
+                    ))}
                 </section>
                 <p className="One_data ArtistOne__data-bio">{artist.bio}</p>
             </section>

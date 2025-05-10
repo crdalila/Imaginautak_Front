@@ -31,9 +31,15 @@
 
 .ArtistOne__img {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 1em;
+}
+
+.ArtistOne__img img {
+    display: flex;
+    height: 500px;
 }
 
 .ArtistOne__data-bio {

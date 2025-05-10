@@ -12,6 +12,5 @@
 }
 
 .previewCard__artist-img img {
-    display: flex;
-    height: 200px;
+    height: 100px
 }
