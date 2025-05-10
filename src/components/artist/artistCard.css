@@ -1,0 +1,35 @@
+
+.artist__card {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.artist__card-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.artist__card-img img {
+    display: flex;
+    width: 150px;
+    height: 150px;
+}
+
+.artist__card-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+}
+
+.artist__card-title {
+    font-family: var(--second-font);
+    font-size: 1.5em;
+}
+
+.artist__card-bio {
+    font-size: 1em;
+    font-family: var(--main-font);
+}

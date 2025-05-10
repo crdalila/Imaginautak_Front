@@ -1,0 +1,85 @@
+/* COMPARTIDO: follows, botón rrss y data para los perfiles */
+
+.One__follows {
+    display: flex;
+    flex-direction: row;
+    padding-top: 1em;
+    justify-content: space-evenly;
+    font-family: var(--main-font);
+    font-weight: bold;
+}
+
+.button_rrss {
+    border: 1px solid #CE7240;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.One__data {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+}
+
+
+/* ARTIST ONE: perfil de artista */
+
+.ArtistOne__img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+
+.ArtistOne__img img {
+    display: flex;
+    height: 300px;
+}
+
+.ArtistOne__data-bio {
+    font-family: var(--main-font);
+    font-size: 1em;
+    text-align: justify;
+    padding-inline: 1.2em;
+    margin-bottom: 1em;
+}
+
+.ArtistOne__links h2, .ArtistOne__projects-title {
+    font-family: var(--second-font);
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.ArtistOne__links {
+    border-top: solid grey 1px;
+    padding-top: 1em;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+    gap: 1em;
+    padding: 1em;
+}
+
+.ArtistOne__links-rrss {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+}
+
+
+
+.ArtistOne__projects {
+    border-top: solid grey 1px;
+    padding-top: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+}

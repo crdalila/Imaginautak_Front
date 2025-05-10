@@ -1,0 +1,39 @@
+/* COMPARTIDO: header de los previews del home */
+
+.preview__header h1 {
+    font-family: var(--second-font);
+    font-size: 1.3em;
+    margin: 0;
+    padding: 1em;
+}
+
+.preview__header p {
+    font-family: var(--main-font);
+    font-size: 1em;
+    margin: 0;
+    padding-inline: 1em;
+}
+
+
+/* COMPARTIDO: carrusel */
+
+.preview__carousel {
+    display: flex;
+    margin: 1em;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+}
+
+.preview__carousel::-webkit-scrollbar {
+    display: none; /* Chrome */
+}
+
+.preview__carousel-item {
+    border: #CE7240 solid 1px;
+    border-radius: 5px;
+    margin-inline-start: 1em;
+    scroll-snap-align: start;
+    align-items: center;
+}
+

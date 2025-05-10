@@ -1,0 +1,30 @@
+.categoryOne__main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+    padding-top: 1.5em;
+}
+
+.categoryOne__description {
+    font-family: var(--main-font);
+    font-size: 1em;
+    padding-inline: 1em;
+}
+
+.categoryOne__img {
+
+}
+
+.categoryOne__img img {
+    height: 120px;
+}
+
+.categoryOne__projects-number {
+    font-family: var(--main-font);
+    font-weight: bold;
+    font-size: 0.8em;
+    text-align: center;
+}

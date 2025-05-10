@@ -1,0 +1,21 @@
+.nav__down {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1em;
+    background-color: white;
+    border-top: grey solid 1px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+    padding-inline: 0.5em;
+}
+
+.nav__down-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

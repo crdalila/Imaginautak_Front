@@ -1,0 +1,32 @@
+.previewCard__project {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 1em;
+    width: inherit;
+}
+.previewCard__project-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.previewCard__project-text h2 {
+    text-align: left;
+}
+
+.previewCard__project-text p {
+    text-align: right;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+.previewCard__project-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.previewCard__project-img img {
+    display: flex;
+    height: 200px;
+}

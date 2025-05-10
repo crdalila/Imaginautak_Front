@@ -1,0 +1,47 @@
+/* COMPARTIDO: card genérico */
+
+.card {
+    display: flex;
+    border: solid #CE7240 1px;
+    border-radius: 5px;
+    margin-bottom: 1em;
+    margin-inline: 1em;
+    padding: 1em;
+}
+
+/* solo de category: */
+
+.category__card {
+    height: 150px;
+}
+
+.category__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+}
+
+.category img {
+    display: flex;
+    max-height: 50px;
+}
+
+.category__text {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2em;
+    width: 100%;;
+}
+
+.category__text-title {
+    font-family: var(--second-font);
+    font-size: 1.5em;
+}
+
+.category__text-description {
+    font-family: var(--main-font);
+    font-style: italic;
+}

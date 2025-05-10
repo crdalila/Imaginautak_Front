@@ -1,0 +1,64 @@
+/* COMPARTIDO: header y cuerpo de los getAll (category, artist y project) */
+
+.getAll {
+    margin-bottom: 5.5em;
+}
+
+.getAll__header {
+    background-color: var(--accent-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    padding-top: 4em;
+    color: white;
+}
+
+.getAll__header h1 {
+    font-family: var(--second-font);
+    text-align: center;
+    font-size: 1.4em;
+    margin: 0;
+    padding: 0.5em;
+}
+
+.getAll__header ol {
+    font-family: var(--main-font);
+    list-style: upper-roman;
+    font-style: italic;
+    margin-inline: 1.5em;
+    padding-inline: 1.5em;
+}
+
+.getAll__header p {
+    font-family: var(--main-font);
+    margin: 0.5em;
+    padding: 0.5em;
+}
+
+.getAll__header strong {
+    font-weight: bold;
+}
+
+.getAll__header em {
+    font-style: italic;
+}
+
+
+/* COMPARTIDO: navbar de filtros (category, artist y project) */
+
+.getAll__navbar-filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+
+/* COMPARTIDO: botón ScrollToTop TODO */
+
+.buttonUp {
+
+}

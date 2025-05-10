@@ -3,6 +3,15 @@
 ## PUESTA EN MARCHA
 Para ver este proyecto al completo, necesitas la parte de BackEnd que está en **repo**. Lee el README del backend para ponerlo en marcha y con esto podrás verlo todo bien chachi pistachi
 
+.env y .env.example
+
+
+SISSTEMA DE CARPETAS
+
+utils: los fetch a la API de backend
+pages: las páginas principales
+componentes: los componentes
+context:
 
 # React + Vite
 

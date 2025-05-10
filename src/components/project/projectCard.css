@@ -1,0 +1,56 @@
+.project__card {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.project__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.project__text-title-complete {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+}
+
+.project__text-title {
+    font-family: var(--second-font);
+    font-size: 1.5em;
+}
+
+.project__text-vermas {
+    font-family: var(--main-font);
+    width: 120px;
+    text-align: right;
+}
+
+.project__text-artist {
+    font-family: var(--main-font);
+    font-weight: bold;
+    font-size: 1em;
+    padding-right: 1em;
+}
+
+.project__img img {
+    width: 100%;
+}
+
+.project__description {
+    font-family: var(--main-font);
+    font-size: 1em;
+}
+
+.project__card-categories {
+    font-family: var(--main-font);
+    font-size: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+}
+
