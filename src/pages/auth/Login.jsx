@@ -18,20 +18,17 @@ function Login({ }) {
 
     const handleUserPassword = (e) => {
         const newPassword = e.target.value;
-        console.log("user password", newPassword)
         const newState = { ...userData, password: newPassword }
         setUserData(newState);
     }
     const handleUserEmail = (e) => {
         const newEmail = e.target.value;
-        console.log("user Email", newEmail)
         const newState = { ...userData, email: newEmail }
         setUserData(newState);
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
         // sin formulario controlado, sacariamos los datos de los inputs
-        console.log("login", userData);
         const result = await onLogin(userData.email, userData.password);
         setError(result);
     }

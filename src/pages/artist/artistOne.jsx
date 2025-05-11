@@ -1,21 +1,52 @@
-import { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useState, useContext } from 'react';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 
 import './artistOne.css';
 import ButtonBack from '../../components/button/buttonBack';
 import ProjectCard from '../../components/project/projectCard';
-import { getArtistImgs } from '../../utils/artist';
+import { getArtistImgs, removeArtist } from '../../utils/artist';
+import { removeProject } from '../../utils/project';
+import { AuthContext } from '../../context/AuthContext';
 
 // PÁGINA DE UN ARTISTA
 function ArtistOne() {
     const defaultArtist = useLoaderData();
     const [artist, setArtist] = useState(defaultArtist.error ? null : defaultArtist); //empieza con una lista vacía
     const [error, setError] = useState(null);
+    const { onLogout, userData } = useContext(AuthContext);
+    const navigate = useNavigate();
     if (!artist) {
         return <p>Artista no encontrado</p>
     }
 
     const projectNumber = artist.projects.length;
+
+    // si el usuario es el dueño del perfil
+    const isOwner = userData?.user_id === artist.artist_id;
+
+    const handleDeleteProfile = async () => {
+        const confirmDelete = window.confirm("¿Quieres eliminar tu perfil? Esta acción no se puede deshacer y, al hacerlo, se eliminarán todos tus proyectos asociados.");
+        if (!confirmDelete) return;
+        const response = await removeArtist(artist.artist_id);
+        if (response) {
+            alert("Perfil eliminado correctamente");
+            onLogout();   
+        }
+    };
+
+    const handleDeleteProject = async (project_id) => {
+        const confirmDelete = window.confirm("¿Quieres eliminar este proyecto? Esta acción no se puede deshacer.");
+        if (!confirmDelete) return;
+
+        const response = await removeProject(project_id);
+        if (response.ok) {
+            alert("Proyecto eliminado correctamente");
+            setArtist({ ...artist, projects: artist.projects.filter(project => project.project_id !== project_id) });
+        } else {
+            alert("Hubo un error al eliminar el proyecto");
+        }
+    };
+
 
     // renderizado:
     return (
@@ -28,6 +59,14 @@ function ArtistOne() {
             <section className="ArtistOne__header getAll__header">
                 <h1 className="ArtistOne__header-title">{artist.artistic_name}</h1>
             </section>
+
+
+            {isOwner && (
+                <section className="ArtistOne__buttons">
+                    <button onClick={onLogout} className='special-button'>Cerrar sesión</button>
+                    <button onClick={handleDeleteProfile} className='special-button'>Eliminar perfil</button>
+                </section>
+            )}
 
             <section className="One__follows">
                 <p>Proyectos: {projectNumber}</p>
@@ -60,7 +99,7 @@ function ArtistOne() {
                         </a>
                     )}
                     {artist.social_media_02 && (
-        
+
                         <a href={artist.social_media_02} target="_blank" className="button_rrss">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24px" height="24px">
                                 <path fill="#ce7240" d="M181.3 32.4c17.4 2.9 29.2 19.4 26.3 36.8L197.8 128l95.1 0 11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3s29.2 19.4 26.3 36.8L357.8 128l58.2 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-68.9 0L325.8 320l58.2 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-68.9 0-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8l9.8-58.7-95.1 0-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8L90.2 384 32 384c-17.7 0-32-14.3-32-32s14.3-32 32-32l68.9 0 21.3-128L64 192c-17.7 0-32-14.3-32-32s14.3-32 32-32l68.9 0 11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3zM187.1 192L165.8 320l95.1 0 21.3-128-95.1 0z" /></svg>
@@ -72,10 +111,21 @@ function ArtistOne() {
 
             <section className="ArtistOne__projects">
                 <h2 className="ArtistOne__projects-title">Proyectos</h2>
-                {artist.projects.length === 0 && <p>Este arista todavía no tiene proyectos publicados</p>}
+                {artist.projects.length === 0 && <p>Este artista todavía no tiene proyectos publicados</p>}
                 {artist.projects.map(project => (
                     <div className="ArtistOne_projects-card" key={project.project_id}>
                         <ProjectCard project={project} />
+                        {isOwner && (
+                            <section className='ArtistOne__projects-delete'>
+                                <button
+                                    className="delete-project-button"
+                                    onClick={() => handleDeleteProject(project.project_id)}
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="17px" height="17x">
+                                        <path fill="white" d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z" /></svg>
+                                </button>
+                            </section>
+                        )}
                     </div>
                 ))}
             </section>

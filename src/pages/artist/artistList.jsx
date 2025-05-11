@@ -53,7 +53,7 @@ function ArtistList({ initialData = null }) {
             <section className="artist__cards">
                 {artists.length == 0 && <p>No hay artistas disponibles</p>}
                 {artists.map (artist => (
-                    <div className="artist__cards-card">
+                    <div className="artist__cards-card" key={artist.artist_id}>
                         <ArtistCard artist={artist} />
                     </div> 
                 ))}

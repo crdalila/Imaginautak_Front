@@ -19,3 +19,8 @@
     flex-direction: column;
     align-items: center;
 }
+
+.nav__down-button p {
+    font-size: 0.8em;
+    font-family: var(--second-font);
+}

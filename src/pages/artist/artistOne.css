@@ -73,7 +73,31 @@
     gap: 1em;
 }
 
+.ArtistOne__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
 
+.special-button {
+    border: 1.5px dashed #CE7240;
+}
+
+.ArtistOne__projects-delete {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    gap: 1em;
+    margin-right: 1em;
+}
+
+.delete-project-button {
+    background-color: #CE7240;
+    width: 50px;
+}
 
 .ArtistOne__projects {
     border-top: solid grey 1px;
