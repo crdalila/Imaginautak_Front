@@ -92,7 +92,7 @@ async function updateProject(id, projectData) {
     // Similar a createProject, manejar FormData si es necesario
     if (projectData instanceof FormData) {
         const BASE_URL = "http://localhost:3000";
-        const url = `${BASE_URL}/projects/${id}`;
+        const url = `${BASE_URL}/proyectos/${id}`;
         
         const token = localStorage.getItem("token");
         let tokenParsed = null;
