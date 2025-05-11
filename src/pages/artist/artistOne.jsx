@@ -41,13 +41,10 @@ function ArtistOne() {
     const handleDeleteProject = async (project_id) => {
         const confirmDelete = window.confirm("¿Quieres eliminar este proyecto? Esta acción no se puede deshacer.");
         if (!confirmDelete) return;
-
         const response = await removeProject(project_id);
-        if (response.ok) {
+        if (response) {
             alert("Proyecto eliminado correctamente");
-            setArtist({ ...artist, projects: artist.projects.filter(project => project.project_id !== project_id) });
-        } else {
-            alert("Hubo un error al eliminar el proyecto");
+            navigate(`/proyectos`);
         }
     };
 
