@@ -104,7 +104,7 @@ async function updateProject(id, projectData) {
         }
         
         const options = {
-            method: "PUT",  // o PATCH según tu API
+            method: "PUT",
             headers: {}
         };
         

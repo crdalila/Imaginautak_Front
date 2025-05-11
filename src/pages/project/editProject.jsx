@@ -161,7 +161,7 @@ function EditProject() {
 				setProjectData({
 					...project,
 					trigger_warnings: project.trigger_warnings || [], // por si no hay advertencias
-					categoryIds: Array.isArray(project.categoryIds) ? project.categoryIds : [] // ssegura que categoryIds sea siempre un array
+					categoryIds: Array.isArray(project.categoryIds) ? project.categoryIds : [] // asegura que categoryIds sea siempre un array
 				});
 			} catch (err) {
 				setError("Error al cargar el proyecto: " + err.message);
@@ -193,12 +193,16 @@ function EditProject() {
 
 	const handleCategoriesChange = (e) => {
 		const { value, checked } = e.target;
+		const numericValue = parseInt(value, 10);
+	
 		setProjectData(prev => {
 			const updatedCategoryIds = Array.isArray(prev.categoryIds) ? [...prev.categoryIds] : [];
 			if (checked) {
-				updatedCategoryIds.push(value);
+				if (!updatedCategoryIds.includes(numericValue)) {
+					updatedCategoryIds.push(numericValue);
+				}
 			} else {
-				const index = updatedCategoryIds.indexOf(value);
+				const index = updatedCategoryIds.indexOf(numericValue);
 				if (index > -1) {
 					updatedCategoryIds.splice(index, 1);
 				}
@@ -206,6 +210,7 @@ function EditProject() {
 			return { ...prev, categoryIds: updatedCategoryIds };
 		});
 	};
+	
 
 
 	const handleFileChange = (e) => {
@@ -225,9 +230,8 @@ function EditProject() {
 					formData.append(key, projectData[key]);
 				}
 			});
-			projectData.categoryIds.forEach(catId => {
-				formData.append("categoryIds[]", catId);
-			});
+			const categoriesFormatted = projectData.categoryIds.map(id => ({ category_id: parseInt(id, 10) }));
+			formData.append("categoryIds", JSON.stringify(projectData.categoryIds));
 
 			// añadir las imágenes seleccionadas si las hay
 			selectedFiles.forEach(file => {
@@ -332,7 +336,6 @@ function EditProject() {
 						onChange={handleFileChange}
 						accept="image/*"
 						multiple
-						required
 					/>
 
 					{previewUrls.length > 0 && (
@@ -374,7 +377,7 @@ function EditProject() {
 										id={`category-${category.category_id}`}
 										name="categoryIds"
 										value={category.category_id}
-										checked={Array.isArray(projectData.categoryIds) && projectData.categoryIds.includes(String(category.category_id))}
+										checked={projectData.categoryIds.map(String).includes(String(category.category_id))}
 										onChange={handleCategoriesChange}
 									/>
 									<label htmlFor={`category-${category.category_id}`}>
