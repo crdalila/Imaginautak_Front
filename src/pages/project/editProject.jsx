@@ -332,7 +332,6 @@ function EditProject() {
 						onChange={handleFileChange}
 						accept="image/*"
 						multiple
-						required
 					/>
 
 					{previewUrls.length > 0 && (
