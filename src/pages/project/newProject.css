@@ -1,3 +1,8 @@
+small {
+    font-family: var(--main-font);
+    font-size: 0.8em;
+}
+
 .newProject__header h2 {
     font-family: var(--second-font);
     font-size: 0.8em;
@@ -27,3 +32,18 @@
 .form-group > label {
     font-family: var(--second-font);
 }
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.3em;
+    align-items: start;
+}
+
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+

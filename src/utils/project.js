@@ -137,7 +137,7 @@ async function updateProject(id, projectData) {
 
 // REMOVE PROJECT
 async function removeProject(project_id){
-    const response = await fetchData(`/proyectos/${project_id}`, "DELETE");
+    const response = await fetchData(`/proyectos/${project_id}/eliminar`, "DELETE");
     return response;
 }
 

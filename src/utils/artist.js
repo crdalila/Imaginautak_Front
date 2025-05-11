@@ -34,10 +34,17 @@ function getArtistImgs(artist) {
     return imgArray.map(filename => `${BASE_URL}/${filename.replace(/^public\//, '')}`);
 }
 
+// REMOVE ARTIST
+async function removeArtist(artist_id){
+    const response = await fetchData(`/artistas/${artist_id}/eliminar`, "DELETE");
+    return response;
+}
+
 
 export {
     getAllArtist,
     getArtistByArtisticName,
     getArtistById,
-    getArtistImgs
+    getArtistImgs,
+    removeArtist
 }
