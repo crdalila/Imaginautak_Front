@@ -10,6 +10,7 @@ import ArtistOne from './pages/artist/artistOne';
 import ProjectList from './pages/project/projectList';
 import ProjectOne from './pages/project/projectOne';
 import NewProject from './pages/project/newProject';
+import EditProject from './pages/project/editProject';
 
 import HomePage from './pages/home/Home';
 
@@ -70,6 +71,12 @@ const router  = createBrowserRouter([
             {
                 path: "/proyectos/crear",
                 element: <NewProject />,
+                loader: getAllCategories
+            },
+            {
+                path: "/proyectos/:id/editar",
+                element: <EditProject />,
+                loader: async ({params}) => getProjectById(params.id),
                 loader: getAllCategories
             },
             {

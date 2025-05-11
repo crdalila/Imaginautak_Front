@@ -41,47 +41,49 @@ function ProjectOne() {
 			</section>
 
 			<section className="ProjectOne__imgs ArtistOne_imgs">
-			<section className={"ProjectOne__img"}>
-                    {getProjectImgs(project).map((imgUrl, index) => (
-                        <img key={index} src={imgUrl} alt={`${project.title} ${index + 1}`} />
-                    ))}
-                </section>
+				<section className={"ProjectOne__img"}>
+					{getProjectImgs(project).map((imgUrl, index) => (
+						<img key={index} src={imgUrl} alt={`${project.title} ${index + 1}`} />
+					))}
+				</section>
 				<section className="ProjectOne__video">
-					{project.project_video && (
-						<iframe
-							src={`https://www.youtube.com/embed/${new URL(project.project_video).searchParams.get("v")}`}
-							title="YouTube video player"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-							allowFullScreen
-						></iframe>
+					<section className="ProjectOne__video">
+						{project.project_video && /^(https?:\/\/(?:www\.)?youtube\.com\/watch\?v=)/.test(project.project_video) && (
+							<iframe
+								src={`https://www.youtube.com/embed/${new URL(project.project_video).searchParams.get("v")}`}
+								title="YouTube video player"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowFullScreen
+							></iframe>
+						)}
+					</section>
+				</section>
+
+				<section className="ProjectOne__data One_data">
+					<p className="ProjectOne__data-title">{project.title}</p>
+					<p className="ProjectOne__description">Descripción: {project.description}</p>
+					{project.trigger_warnings && (
+						<p className="ProjectOne__warnings">Contenido sensible: {project.trigger_warnings}</p>
+					)
+					}
+				</section>
+
+				<section className="ProjectOne__categories">
+					{project.categories.length === 0 ? (
+						<p>No hay categorías disponibles para este proyecto</p>
+					) : (
+						<>
+							<p>Categorías: </p>
+							{project.categories.map(category => (
+								<button className="project__card-category" key={category.category_id}>
+									<Link to={`/categorias/${category.category_id}`}>
+										{category.category_name}
+									</Link>
+								</button>
+							))}
+						</>
 					)}
 				</section>
-			</section>
-
-			<section className="ProjectOne__data One_data">
-				<p className="ProjectOne__data-title">{project.title}</p>
-				<p className="ProjectOne__description">Descripción: {project.description}</p>
-				{project.trigger_warnings && (
-					<p className="ProjectOne__warnings">Contenido sensible: {project.trigger_warnings}</p>
-				)
-				}
-			</section>
-
-			<section className="ProjectOne__categories">
-				{project.categories.length === 0 ? (
-					<p>No hay categorías disponibles para este proyecto</p>
-				) : (
-					<>
-						<p>Categorías: </p>
-						{project.categories.map(category => (
-							<button className="project__card-category" key={category.category_id}>
-								<Link to={`/categorias/${category.category_id}`}>
-									{category.category_name}
-								</Link>
-							</button>
-						))}
-					</>
-				)}
 			</section>
 		</article >
 	);
